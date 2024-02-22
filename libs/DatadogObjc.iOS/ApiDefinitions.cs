@@ -184,7 +184,7 @@ namespace DatadogObjc
 
 	// @interface DDDefaultUIKitRUMActionsPredicate : NSObject <DDUIKitRUMActionsPredicate>
 	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc33DDDefaultUIKitRUMActionsPredicate")]
-	interface DDDefaultUIKitRUMActionsPredicate : IDDUIKitRUMActionsPredicate
+	interface DDDefaultUIKitRUMActionsPredicate : DDUIKitRUMActionsPredicate
 	{
 		// -(DDRUMAction * _Nullable)rumActionWithTargetView:(UIView * _Nonnull)targetView __attribute__((warn_unused_result("")));
 		[Export ("rumActionWithTargetView:")]
@@ -217,7 +217,7 @@ namespace DatadogObjc
 
 	// @interface DDDefaultUIKitRUMViewsPredicate : NSObject <DDUIKitRUMViewsPredicate>
 	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc31DDDefaultUIKitRUMViewsPredicate")]
-	interface DDDefaultUIKitRUMViewsPredicate : IDDUIKitRUMViewsPredicate
+	interface DDDefaultUIKitRUMViewsPredicate : DDUIKitRUMViewsPredicate
 	{
 		// -(DDRUMView * _Nullable)rumViewFor:(UIViewController * _Nonnull)viewController __attribute__((warn_unused_result("")));
 		[Export ("rumViewFor:")]
@@ -4489,7 +4489,7 @@ namespace DatadogObjc
 	// @interface DDTracer : NSObject <OTTracer>
 	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc8DDTracer")]
 	[DisableDefaultCtor]
-	interface DDTracer : IOTTracer
+	interface DDTracer : OTTracer
 	{
 		// +(id<OTTracer> _Nonnull)shared __attribute__((warn_unused_result("")));
 		[Static]
@@ -4528,7 +4528,7 @@ namespace DatadogObjc
 	// @interface DDTracingHeaderType : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc19DDTracingHeaderType")]
 	[DisableDefaultCtor]
-	interface DDTracingHeaderType
+	interface DDTracingHeaderType : INativeObject
 	{
 		// @property (readonly, nonatomic, strong, class) DDTracingHeaderType * _Nonnull datadog;
 		[Static]

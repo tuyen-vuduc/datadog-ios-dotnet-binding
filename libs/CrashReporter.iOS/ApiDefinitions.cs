@@ -556,7 +556,7 @@ namespace CrashReporter
 
 	// @interface PLCrashReportTextFormatter : NSObject <PLCrashReportFormatter>
 	[BaseType (typeof(NSObject))]
-	interface PLCrashReportTextFormatter : IPLCrashReportFormatter
+	interface PLCrashReportTextFormatter : PLCrashReportFormatter
 	{
 		// +(NSString *)stringValueForCrashReport:(PLCrashReport *)report withTextFormat:(PLCrashReportTextFormat)textFormat;
 		[Static]
