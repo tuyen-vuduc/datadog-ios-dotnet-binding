@@ -5,6 +5,24 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrashReporter.iOS", "libs\CrashReporter.iOS\CrashReporter.iOS.csproj", "{4AE914E5-EC94-4588-932F-F343EFB52C71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogCore.iOS", "libs\DatadogCore.iOS\DatadogCore.iOS.csproj", "{CE822F3B-542A-4DF9-ADBB-822D08358C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogCrashReporting.iOS", "libs\DatadogCrashReporting.iOS\DatadogCrashReporting.iOS.csproj", "{9A217B67-349E-4C3E-9800-0CC6D0023286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogInternal.iOS", "libs\DatadogInternal.iOS\DatadogInternal.iOS.csproj", "{151DB571-B113-4CB0-BFDF-342AD9B22C63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogLogs.iOS", "libs\DatadogLogs.iOS\DatadogLogs.iOS.csproj", "{27BAED16-ECAC-422B-A0E8-C6BB2AF3C3D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogObjc.iOS", "libs\DatadogObjc.iOS\DatadogObjc.iOS.csproj", "{EB6EED6C-7E93-49BF-91FF-E38DE27D9845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogRUM.iOS", "libs\DatadogRUM.iOS\DatadogRUM.iOS.csproj", "{925830F2-7229-4E47-B272-161003EA71FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogSessionReplay.iOS", "libs\DatadogSessionReplay.iOS\DatadogSessionReplay.iOS.csproj", "{738137EC-5AFF-4E21-AD7A-7D83A043BA1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogTrace.iOS", "libs\DatadogTrace.iOS\DatadogTrace.iOS.csproj", "{578FDF96-D1B7-478D-90EB-D46983D9F643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatadogWebViewTracking.iOS", "libs\DatadogWebViewTracking.iOS\DatadogWebViewTracking.iOS.csproj", "{C17DA144-DD01-49DF-8223-8EB90B368DBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,5 +33,41 @@ Global
 		{4AE914E5-EC94-4588-932F-F343EFB52C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AE914E5-EC94-4588-932F-F343EFB52C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AE914E5-EC94-4588-932F-F343EFB52C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE822F3B-542A-4DF9-ADBB-822D08358C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE822F3B-542A-4DF9-ADBB-822D08358C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE822F3B-542A-4DF9-ADBB-822D08358C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE822F3B-542A-4DF9-ADBB-822D08358C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A217B67-349E-4C3E-9800-0CC6D0023286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A217B67-349E-4C3E-9800-0CC6D0023286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A217B67-349E-4C3E-9800-0CC6D0023286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A217B67-349E-4C3E-9800-0CC6D0023286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151DB571-B113-4CB0-BFDF-342AD9B22C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151DB571-B113-4CB0-BFDF-342AD9B22C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151DB571-B113-4CB0-BFDF-342AD9B22C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151DB571-B113-4CB0-BFDF-342AD9B22C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27BAED16-ECAC-422B-A0E8-C6BB2AF3C3D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27BAED16-ECAC-422B-A0E8-C6BB2AF3C3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27BAED16-ECAC-422B-A0E8-C6BB2AF3C3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27BAED16-ECAC-422B-A0E8-C6BB2AF3C3D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6EED6C-7E93-49BF-91FF-E38DE27D9845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6EED6C-7E93-49BF-91FF-E38DE27D9845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6EED6C-7E93-49BF-91FF-E38DE27D9845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6EED6C-7E93-49BF-91FF-E38DE27D9845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925830F2-7229-4E47-B272-161003EA71FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925830F2-7229-4E47-B272-161003EA71FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925830F2-7229-4E47-B272-161003EA71FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925830F2-7229-4E47-B272-161003EA71FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738137EC-5AFF-4E21-AD7A-7D83A043BA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738137EC-5AFF-4E21-AD7A-7D83A043BA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738137EC-5AFF-4E21-AD7A-7D83A043BA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738137EC-5AFF-4E21-AD7A-7D83A043BA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{578FDF96-D1B7-478D-90EB-D46983D9F643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{578FDF96-D1B7-478D-90EB-D46983D9F643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{578FDF96-D1B7-478D-90EB-D46983D9F643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{578FDF96-D1B7-478D-90EB-D46983D9F643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C17DA144-DD01-49DF-8223-8EB90B368DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C17DA144-DD01-49DF-8223-8EB90B368DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C17DA144-DD01-49DF-8223-8EB90B368DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C17DA144-DD01-49DF-8223-8EB90B368DBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

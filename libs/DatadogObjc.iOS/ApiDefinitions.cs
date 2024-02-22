@@ -18,12 +18,12 @@ namespace DatadogObjc
 
 		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:injectEncoding:)` instead.")));
 		[Export ("initWithSamplingRate:injectEncoding:")]
-		NativeHandle Constructor (float samplingRate, DDInjectEncoding injectEncoding);
+		IntPtr Constructor (float samplingRate, DDInjectEncoding injectEncoding);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:injectEncoding:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float sampleRate, DDInjectEncoding injectEncoding);
+		IntPtr Constructor (float sampleRate, DDInjectEncoding injectEncoding);
 	}
 
 	// @interface DDConfiguration : NSObject
@@ -78,7 +78,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithClientToken:(NSString * _Nonnull)clientToken env:(NSString * _Nonnull)env __attribute__((objc_designated_initializer));
 		[Export ("initWithClientToken:env:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string clientToken, string env);
+		IntPtr Constructor (string clientToken, string env);
 	}
 
 	// @protocol DDDataEncryption
@@ -221,12 +221,12 @@ namespace DatadogObjc
 
 		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
 		[Export ("initWithSamplingRate:")]
-		NativeHandle Constructor (float samplingRate);
+		IntPtr Constructor (float samplingRate);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float sampleRate);
+		IntPtr Constructor (float sampleRate);
 	}
 
 	// @interface DDLogger : NSObject
@@ -376,7 +376,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithService:(NSString * _Nullable)service name:(NSString * _Nullable)name networkInfoEnabled:(BOOL)networkInfoEnabled bundleWithRumEnabled:(BOOL)bundleWithRumEnabled bundleWithTraceEnabled:(BOOL)bundleWithTraceEnabled remoteSampleRate:(float)remoteSampleRate remoteLogThreshold:(enum DDLogLevel)remoteLogThreshold printLogsToConsole:(BOOL)printLogsToConsole __attribute__((objc_designated_initializer));
 		[Export ("initWithService:name:networkInfoEnabled:bundleWithRumEnabled:bundleWithTraceEnabled:remoteSampleRate:remoteLogThreshold:printLogsToConsole:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor ([NullAllowed] string service, [NullAllowed] string name, bool networkInfoEnabled, bool bundleWithRumEnabled, bool bundleWithTraceEnabled, float remoteSampleRate, DDLogLevel remoteLogThreshold, bool printLogsToConsole);
+		IntPtr Constructor ([NullAllowed] string service, [NullAllowed] string name, bool networkInfoEnabled, bool bundleWithRumEnabled, bool bundleWithTraceEnabled, float remoteSampleRate, DDLogLevel remoteLogThreshold, bool printLogsToConsole);
 	}
 
 	// @interface DDLogs : NSObject
@@ -401,7 +401,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate customEndpoint:(NSURL * _Nullable)customEndpoint __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:customEndpoint:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float sampleRate, [NullAllowed] NSUrl customEndpoint);
+		IntPtr Constructor (float sampleRate, [NullAllowed] NSUrl customEndpoint);
 	}
 
 	// @interface DDNSURLSessionDelegate : NSObject <NSURLSessionDataDelegate>
@@ -411,11 +411,11 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)additionalFirstPartyHostsWithHeaderTypes __attribute__((objc_designated_initializer));
 		[Export ("initWithAdditionalFirstPartyHostsWithHeaderTypes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> additionalFirstPartyHostsWithHeaderTypes);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> additionalFirstPartyHostsWithHeaderTypes);
 
 		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHosts:(NSSet<NSString *> * _Nonnull)additionalFirstPartyHosts;
 		[Export ("initWithAdditionalFirstPartyHosts:")]
-		NativeHandle Constructor (NSSet<NSString> additionalFirstPartyHosts);
+		IntPtr Constructor (NSSet<NSString> additionalFirstPartyHosts);
 	}
 
 	// @interface DDOTelHTTPHeadersWriter : DDB3HTTPHeadersWriter
@@ -425,7 +425,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:injectEncoding:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float sampleRate, DDInjectEncoding injectEncoding);
+		IntPtr Constructor (float sampleRate, DDInjectEncoding injectEncoding);
 	}
 
 	// @interface DDRUM : NSObject
@@ -454,7 +454,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes __attribute__((objc_designated_initializer));
 		[Export ("initWithName:attributes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string name, NSDictionary<NSString, NSObject> attributes);
+		IntPtr Constructor (string name, NSDictionary<NSString, NSObject> attributes);
 	}
 
 	// @interface DDRUMActionEvent : NSObject
@@ -1003,7 +1003,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithApplicationID:(NSString * _Nonnull)applicationID __attribute__((objc_designated_initializer));
 		[Export ("initWithApplicationID:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string applicationID);
+		IntPtr Constructor (string applicationID);
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull applicationID;
 		[Export ("applicationID")]
@@ -1626,22 +1626,22 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)hostsWithHeaderTypes __attribute__((objc_designated_initializer));
 		[Export ("initWithHostsWithHeaderTypes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
 
 		// -(instancetype _Nonnull)initWithHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)hostsWithHeaderTypes sampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithHostsWithHeaderTypes:sampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes, float sampleRate);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes, float sampleRate);
 
 		// -(instancetype _Nonnull)initWithHosts:(NSSet<NSString *> * _Nonnull)hosts __attribute__((objc_designated_initializer));
 		[Export ("initWithHosts:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSSet<NSString> hosts);
+		IntPtr Constructor (NSSet<NSString> hosts);
 
 		// -(instancetype _Nonnull)initWithHosts:(NSSet<NSString *> * _Nonnull)hosts sampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithHosts:sampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSSet<NSString> hosts, float sampleRate);
+		IntPtr Constructor (NSSet<NSString> hosts, float sampleRate);
 	}
 
 	// @interface DDRUMLongTaskEvent : NSObject
@@ -2813,7 +2813,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes __attribute__((objc_designated_initializer));
 		[Export ("initWithName:attributes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string name, NSDictionary<NSString, NSObject> attributes);
+		IntPtr Constructor (string name, NSDictionary<NSString, NSObject> attributes);
 	}
 
 	// @interface DDRUMViewEvent : NSObject
@@ -3655,7 +3655,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithReplaySampleRate:(float)replaySampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithReplaySampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float replaySampleRate);
+		IntPtr Constructor (float replaySampleRate);
 	}
 
 	// @interface DDSite : NSObject
@@ -4389,22 +4389,22 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)hostsWithHeaderTypes __attribute__((objc_designated_initializer));
 		[Export ("initWithHostsWithHeaderTypes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
 
 		// -(instancetype _Nonnull)initWithHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)hostsWithHeaderTypes sampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithHostsWithHeaderTypes:sampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes, float sampleRate);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes, float sampleRate);
 
 		// -(instancetype _Nonnull)initWithHosts:(NSSet<NSString *> * _Nonnull)hosts __attribute__((objc_designated_initializer));
 		[Export ("initWithHosts:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSSet<NSString> hosts);
+		IntPtr Constructor (NSSet<NSString> hosts);
 
 		// -(instancetype _Nonnull)initWithHosts:(NSSet<NSString *> * _Nonnull)hosts sampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithHosts:sampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSSet<NSString> hosts, float sampleRate);
+		IntPtr Constructor (NSSet<NSString> hosts, float sampleRate);
 	}
 
 	// @interface DDTraceURLSessionTracking : NSObject
@@ -4415,7 +4415,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithFirstPartyHostsTracing:(DDTraceFirstPartyHostsTracing * _Nonnull)firstPartyHostsTracing __attribute__((objc_designated_initializer));
 		[Export ("initWithFirstPartyHostsTracing:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (DDTraceFirstPartyHostsTracing firstPartyHostsTracing);
+		IntPtr Constructor (DDTraceFirstPartyHostsTracing firstPartyHostsTracing);
 
 		// -(void)setFirstPartyHostsTracing:(DDTraceFirstPartyHostsTracing * _Nonnull)firstPartyHostsTracing;
 		[Export ("setFirstPartyHostsTracing:")]
@@ -4602,7 +4602,7 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithDelegateClass:(Class<NSURLSessionDataDelegate> _Nonnull)delegateClass __attribute__((objc_designated_initializer));
 		[Export ("initWithDelegateClass:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSUrlSessionDataDelegate delegateClass);
+		IntPtr Constructor (NSUrlSessionDataDelegate delegateClass);
 
 		// -(void)setFirstPartyHostsTracing:(DDURLSessionInstrumentationFirstPartyHostsTracing * _Nonnull)firstPartyHostsTracing;
 		[Export ("setFirstPartyHostsTracing:")]
@@ -4621,12 +4621,12 @@ namespace DatadogObjc
 		// -(instancetype _Nonnull)initWithHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)hostsWithHeaderTypes __attribute__((objc_designated_initializer));
 		[Export ("initWithHostsWithHeaderTypes:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
+		IntPtr Constructor (NSDictionary<NSString, NSSet<DDTracingHeaderType>> hostsWithHeaderTypes);
 
 		// -(instancetype _Nonnull)initWithHosts:(NSSet<NSString *> * _Nonnull)hosts __attribute__((objc_designated_initializer));
 		[Export ("initWithHosts:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSSet<NSString> hosts);
+		IntPtr Constructor (NSSet<NSString> hosts);
 	}
 
 	// @interface DDW3CHTTPHeadersWriter : NSObject
@@ -4640,12 +4640,12 @@ namespace DatadogObjc
 
 		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
 		[Export ("initWithSamplingRate:")]
-		NativeHandle Constructor (float samplingRate);
+		IntPtr Constructor (float samplingRate);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (float sampleRate);
+		IntPtr Constructor (float sampleRate);
 	}
 
 	// @interface OT : NSObject

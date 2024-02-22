@@ -10,7 +10,7 @@ namespace DatadogInternal
 	{
 		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHosts:(NSSet<NSString *> * _Nonnull)additionalFirstPartyHosts;
 		[Export ("initWithAdditionalFirstPartyHosts:")]
-		NativeHandle Constructor (NSSet<NSString> additionalFirstPartyHosts);
+		IntPtr Constructor (NSSet<NSString> additionalFirstPartyHosts);
 
 		// -(void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didFinishCollectingMetrics:(NSURLSessionTaskMetrics * _Nonnull)metrics;
 		[Export ("URLSession:task:didFinishCollectingMetrics:")]

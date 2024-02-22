@@ -17,23 +17,23 @@ namespace CrashReporter
 
 		// -(instancetype)initWithBasePath:(NSString *)basePath;
 		[Export ("initWithBasePath:")]
-		NativeHandle Constructor (string basePath);
+		IntPtr Constructor (string basePath);
 
 		// -(instancetype)initWithSignalHandlerType:(PLCrashReporterSignalHandlerType)signalHandlerType symbolicationStrategy:(PLCrashReporterSymbolicationStrategy)symbolicationStrategy;
 		[Export ("initWithSignalHandlerType:symbolicationStrategy:")]
-		NativeHandle Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy);
+		IntPtr Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy);
 
 		// -(instancetype)initWithSignalHandlerType:(PLCrashReporterSignalHandlerType)signalHandlerType symbolicationStrategy:(PLCrashReporterSymbolicationStrategy)symbolicationStrategy basePath:(NSString *)basePath;
 		[Export ("initWithSignalHandlerType:symbolicationStrategy:basePath:")]
-		NativeHandle Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, string basePath);
+		IntPtr Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, string basePath);
 
 		// -(instancetype)initWithSignalHandlerType:(PLCrashReporterSignalHandlerType)signalHandlerType symbolicationStrategy:(PLCrashReporterSymbolicationStrategy)symbolicationStrategy shouldRegisterUncaughtExceptionHandler:(BOOL)shouldRegisterUncaughtExceptionHandler;
 		[Export ("initWithSignalHandlerType:symbolicationStrategy:shouldRegisterUncaughtExceptionHandler:")]
-		NativeHandle Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, bool shouldRegisterUncaughtExceptionHandler);
+		IntPtr Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, bool shouldRegisterUncaughtExceptionHandler);
 
 		// -(instancetype)initWithSignalHandlerType:(PLCrashReporterSignalHandlerType)signalHandlerType symbolicationStrategy:(PLCrashReporterSymbolicationStrategy)symbolicationStrategy shouldRegisterUncaughtExceptionHandler:(BOOL)shouldRegisterUncaughtExceptionHandler basePath:(NSString *)basePath;
 		[Export ("initWithSignalHandlerType:symbolicationStrategy:shouldRegisterUncaughtExceptionHandler:basePath:")]
-		NativeHandle Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, bool shouldRegisterUncaughtExceptionHandler, string basePath);
+		IntPtr Constructor (PLCrashReporterSignalHandlerType signalHandlerType, PLCrashReporterSymbolicationStrategy symbolicationStrategy, bool shouldRegisterUncaughtExceptionHandler, string basePath);
 
 		// @property (readonly, nonatomic) NSString * basePath;
 		[Export ("basePath")]
@@ -64,7 +64,7 @@ namespace CrashReporter
 
 		// -(instancetype)initWithConfiguration:(PLCrashReporterConfig *)config;
 		[Export ("initWithConfiguration:")]
-		NativeHandle Constructor (PLCrashReporterConfig config);
+		IntPtr Constructor (PLCrashReporterConfig config);
 
 		// -(BOOL)hasPendingCrashReport;
 		[Export ("hasPendingCrashReport")]
@@ -143,7 +143,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithApplicationIdentifier:(NSString *)applicationIdentifier applicationVersion:(NSString *)applicationVersion applicationMarketingVersion:(NSString *)applicationMarketingVersion;
 		[Export ("initWithApplicationIdentifier:applicationVersion:applicationMarketingVersion:")]
-		NativeHandle Constructor (string applicationIdentifier, string applicationVersion, string applicationMarketingVersion);
+		IntPtr Constructor (string applicationIdentifier, string applicationVersion, string applicationMarketingVersion);
 
 		// @property (readonly, nonatomic, strong) NSString * applicationIdentifier;
 		[Export ("applicationIdentifier", ArgumentSemantic.Strong)]
@@ -164,7 +164,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithTypeEncoding:(PLCrashReportProcessorTypeEncoding)typeEncoding type:(uint64_t)type subtype:(uint64_t)subtype;
 		[Export ("initWithTypeEncoding:type:subtype:")]
-		NativeHandle Constructor (PLCrashReportProcessorTypeEncoding typeEncoding, ulong type, ulong subtype);
+		IntPtr Constructor (PLCrashReportProcessorTypeEncoding typeEncoding, ulong type, ulong subtype);
 
 		// @property (readonly, nonatomic) PLCrashReportProcessorTypeEncoding typeEncoding;
 		[Export ("typeEncoding")]
@@ -185,7 +185,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithCodeType:(PLCrashReportProcessorInfo *)processorInfo baseAddress:(uint64_t)baseAddress size:(uint64_t)imageSize name:(NSString *)imageName uuid:(NSData *)uuid;
 		[Export ("initWithCodeType:baseAddress:size:name:uuid:")]
-		NativeHandle Constructor (PLCrashReportProcessorInfo processorInfo, ulong baseAddress, ulong imageSize, string imageName, NSData uuid);
+		IntPtr Constructor (PLCrashReportProcessorInfo processorInfo, ulong baseAddress, ulong imageSize, string imageName, NSData uuid);
 
 		// @property (readonly, nonatomic, strong) PLCrashReportProcessorInfo * codeType;
 		[Export ("codeType", ArgumentSemantic.Strong)]
@@ -218,7 +218,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithSymbolName:(NSString *)symbolName startAddress:(uint64_t)startAddress endAddress:(uint64_t)endAddress;
 		[Export ("initWithSymbolName:startAddress:endAddress:")]
-		NativeHandle Constructor (string symbolName, ulong startAddress, ulong endAddress);
+		IntPtr Constructor (string symbolName, ulong startAddress, ulong endAddress);
 
 		// @property (readonly, nonatomic, strong) NSString * symbolName;
 		[Export ("symbolName", ArgumentSemantic.Strong)]
@@ -239,7 +239,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithInstructionPointer:(uint64_t)instructionPointer symbolInfo:(PLCrashReportSymbolInfo *)symbolInfo;
 		[Export ("initWithInstructionPointer:symbolInfo:")]
-		NativeHandle Constructor (ulong instructionPointer, PLCrashReportSymbolInfo symbolInfo);
+		IntPtr Constructor (ulong instructionPointer, PLCrashReportSymbolInfo symbolInfo);
 
 		// @property (readonly, nonatomic) uint64_t instructionPointer;
 		[Export ("instructionPointer")]
@@ -256,7 +256,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithRegisterName:(NSString *)registerName registerValue:(uint64_t)registerValue;
 		[Export ("initWithRegisterName:registerValue:")]
-		NativeHandle Constructor (string registerName, ulong registerValue);
+		IntPtr Constructor (string registerName, ulong registerValue);
 
 		// @property (readonly, nonatomic, strong) NSString * registerName;
 		[Export ("registerName", ArgumentSemantic.Strong)]
@@ -274,7 +274,7 @@ namespace CrashReporter
 		// -(id)initWithThreadNumber:(NSInteger)threadNumber stackFrames:(NSArray *)stackFrames crashed:(BOOL)crashed registers:(NSArray *)registers;
 		[Export ("initWithThreadNumber:stackFrames:crashed:registers:")]
 		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		NativeHandle Constructor (nint threadNumber, NSObject[] stackFrames, bool crashed, NSObject[] registers);
+		IntPtr Constructor (nint threadNumber, NSObject[] stackFrames, bool crashed, NSObject[] registers);
 
 		// @property (readonly, nonatomic) NSInteger threadNumber;
 		[Export ("threadNumber")]
@@ -301,12 +301,12 @@ namespace CrashReporter
 	{
 		// -(id)initWithExceptionName:(NSString *)name reason:(NSString *)reason;
 		[Export ("initWithExceptionName:reason:")]
-		NativeHandle Constructor (string name, string reason);
+		IntPtr Constructor (string name, string reason);
 
 		// -(id)initWithExceptionName:(NSString *)name reason:(NSString *)reason stackFrames:(NSArray *)stackFrames;
 		[Export ("initWithExceptionName:reason:stackFrames:")]
 		[Verify (StronglyTypedNSArray)]
-		NativeHandle Constructor (string name, string reason, NSObject[] stackFrames);
+		IntPtr Constructor (string name, string reason, NSObject[] stackFrames);
 
 		// @property (readonly, nonatomic, strong) NSString * exceptionName;
 		[Export ("exceptionName", ArgumentSemantic.Strong)]
@@ -328,7 +328,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithModelName:(NSString *)modelName processorInfo:(PLCrashReportProcessorInfo *)processorInfo processorCount:(NSUInteger)processorCount logicalProcessorCount:(NSUInteger)logicalProcessorCount;
 		[Export ("initWithModelName:processorInfo:processorCount:logicalProcessorCount:")]
-		NativeHandle Constructor (string modelName, PLCrashReportProcessorInfo processorInfo, nuint processorCount, nuint logicalProcessorCount);
+		IntPtr Constructor (string modelName, PLCrashReportProcessorInfo processorInfo, nuint processorCount, nuint logicalProcessorCount);
 
 		// @property (readonly, nonatomic, strong) NSString * modelName;
 		[Export ("modelName", ArgumentSemantic.Strong)]
@@ -354,7 +354,7 @@ namespace CrashReporter
 		// -(id)initWithType:(uint64_t)type codes:(NSArray *)codes;
 		[Export ("initWithType:codes:")]
 		[Verify (StronglyTypedNSArray)]
-		NativeHandle Constructor (ulong type, NSObject[] codes);
+		IntPtr Constructor (ulong type, NSObject[] codes);
 
 		// @property (readonly, nonatomic) uint64_t type;
 		[Export ("type")]
@@ -372,7 +372,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithProcessName:(NSString *)processName processID:(NSUInteger)processID processPath:(NSString *)processPath processStartTime:(NSDate *)processStartTime parentProcessName:(NSString *)parentProcessName parentProcessID:(NSUInteger)parentProcessID native:(BOOL)native;
 		[Export ("initWithProcessName:processID:processPath:processStartTime:parentProcessName:parentProcessID:native:")]
-		NativeHandle Constructor (string processName, nuint processID, string processPath, NSDate processStartTime, string parentProcessName, nuint parentProcessID, bool native);
+		IntPtr Constructor (string processName, nuint processID, string processPath, NSDate processStartTime, string parentProcessName, nuint parentProcessID, bool native);
 
 		// @property (readonly, nonatomic, strong) NSString * processName;
 		[Export ("processName", ArgumentSemantic.Strong)]
@@ -409,7 +409,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithSignalName:(NSString *)name code:(NSString *)code address:(uint64_t)address;
 		[Export ("initWithSignalName:code:address:")]
-		NativeHandle Constructor (string name, string code, ulong address);
+		IntPtr Constructor (string name, string code, ulong address);
 
 		// @property (readonly, nonatomic, strong) NSString * name;
 		[Export ("name", ArgumentSemantic.Strong)]
@@ -443,15 +443,15 @@ namespace CrashReporter
 	{
 		// -(id)initWithOperatingSystem:(PLCrashReportOperatingSystem)operatingSystem operatingSystemVersion:(NSString *)operatingSystemVersion architecture:(PLCrashReportArchitecture)architecture timestamp:(NSDate *)timestamp __attribute__((deprecated("")));
 		[Export ("initWithOperatingSystem:operatingSystemVersion:architecture:timestamp:")]
-		NativeHandle Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, PLCrashReportArchitecture architecture, NSDate timestamp);
+		IntPtr Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, PLCrashReportArchitecture architecture, NSDate timestamp);
 
 		// -(id)initWithOperatingSystem:(PLCrashReportOperatingSystem)operatingSystem operatingSystemVersion:(NSString *)operatingSystemVersion operatingSystemBuild:(NSString *)operatingSystemBuild architecture:(PLCrashReportArchitecture)architecture timestamp:(NSDate *)timestamp __attribute__((deprecated("")));
 		[Export ("initWithOperatingSystem:operatingSystemVersion:operatingSystemBuild:architecture:timestamp:")]
-		NativeHandle Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, string operatingSystemBuild, PLCrashReportArchitecture architecture, NSDate timestamp);
+		IntPtr Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, string operatingSystemBuild, PLCrashReportArchitecture architecture, NSDate timestamp);
 
 		// -(id)initWithOperatingSystem:(PLCrashReportOperatingSystem)operatingSystem operatingSystemVersion:(NSString *)operatingSystemVersion operatingSystemBuild:(NSString *)operatingSystemBuild architecture:(PLCrashReportArchitecture)architecture processorInfo:(PLCrashReportProcessorInfo *)processorInfo timestamp:(NSDate *)timestamp;
 		[Export ("initWithOperatingSystem:operatingSystemVersion:operatingSystemBuild:architecture:processorInfo:timestamp:")]
-		NativeHandle Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, string operatingSystemBuild, PLCrashReportArchitecture architecture, PLCrashReportProcessorInfo processorInfo, NSDate timestamp);
+		IntPtr Constructor (PLCrashReportOperatingSystem operatingSystem, string operatingSystemVersion, string operatingSystemBuild, PLCrashReportArchitecture architecture, PLCrashReportProcessorInfo processorInfo, NSDate timestamp);
 
 		// @property (readonly, nonatomic) PLCrashReportOperatingSystem operatingSystem;
 		[Export ("operatingSystem")]
@@ -484,7 +484,7 @@ namespace CrashReporter
 	{
 		// -(id)initWithData:(NSData *)encodedData error:(NSError **)outError;
 		[Export ("initWithData:error:")]
-		NativeHandle Constructor (NSData encodedData, out NSError outError);
+		IntPtr Constructor (NSData encodedData, out NSError outError);
 
 		// -(PLCrashReportBinaryImageInfo *)imageForAddress:(uint64_t)address;
 		[Export ("imageForAddress:")]
@@ -578,7 +578,7 @@ namespace CrashReporter
 
 		// -(id)initWithTextFormat:(PLCrashReportTextFormat)textFormat stringEncoding:(NSStringEncoding)stringEncoding;
 		[Export ("initWithTextFormat:stringEncoding:")]
-		NativeHandle Constructor (PLCrashReportTextFormat textFormat, nuint stringEncoding);
+		IntPtr Constructor (PLCrashReportTextFormat textFormat, nuint stringEncoding);
 	}
 
 	[Static]
