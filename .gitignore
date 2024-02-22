@@ -39,6 +39,7 @@ Thumbs.db
 # dotCover
 *.dotCover
 
+nugets/
 nugets/!.keepme
 
 .vs

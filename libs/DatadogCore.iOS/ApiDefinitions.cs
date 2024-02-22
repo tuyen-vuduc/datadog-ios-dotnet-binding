@@ -4,18 +4,17 @@ using Foundation;
 
 namespace DatadogCore
 {
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double DatadogVersionNumber;
-		[Field ("DatadogVersionNumber", "__Internal")]
-		double DatadogVersionNumber { get; }
+	// [Static]
+	// partial interface Constants
+	// {
+	// 	// extern double DatadogVersionNumber;
+	// 	[Field ("DatadogVersionNumber", "__Internal")]
+	// 	double DatadogVersionNumber { get; }
 
-		// extern const unsigned char[] DatadogVersionString;
-		[Field ("DatadogVersionString", "__Internal")]
-		byte[] DatadogVersionString { get; }
-	}
+	// 	// extern const unsigned char[] DatadogVersionString;
+	// 	[Field ("DatadogVersionString", "__Internal")]
+	// 	byte[] DatadogVersionString { get; }
+	// }
 
 	// @interface __dd_private_AppLaunchHandler : NSObject
 	[BaseType (typeof(NSObject))]

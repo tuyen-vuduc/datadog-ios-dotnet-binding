@@ -59,8 +59,7 @@ namespace CrashReporter
 		// +(PLCrashReporter *)sharedReporter __attribute__((deprecated("")));
 		[Static]
 		[Export ("sharedReporter")]
-		[Verify (MethodToProperty)]
-		PLCrashReporter SharedReporter { get; }
+		PLCrashReporter SharedReporter();
 
 		// -(instancetype)initWithConfiguration:(PLCrashReporterConfig *)config;
 		[Export ("initWithConfiguration:")]
@@ -68,13 +67,11 @@ namespace CrashReporter
 
 		// -(BOOL)hasPendingCrashReport;
 		[Export ("hasPendingCrashReport")]
-		[Verify (MethodToProperty)]
-		bool HasPendingCrashReport { get; }
+		bool HasPendingCrashReport();
 
 		// -(NSData *)loadPendingCrashReportData;
 		[Export ("loadPendingCrashReportData")]
-		[Verify (MethodToProperty)]
-		NSData LoadPendingCrashReportData { get; }
+		NSData LoadPendingCrashReportData();
 
 		// -(NSData *)loadPendingCrashReportDataAndReturnError:(NSError **)outError;
 		[Export ("loadPendingCrashReportDataAndReturnError:")]
@@ -94,8 +91,7 @@ namespace CrashReporter
 
 		// -(NSData *)generateLiveReport;
 		[Export ("generateLiveReport")]
-		[Verify (MethodToProperty)]
-		NSData GenerateLiveReport { get; }
+		NSData GenerateLiveReport ();
 
 		// -(NSData *)generateLiveReportAndReturnError:(NSError **)outError;
 		[Export ("generateLiveReportAndReturnError:")]
@@ -107,8 +103,7 @@ namespace CrashReporter
 
 		// -(BOOL)purgePendingCrashReport;
 		[Export ("purgePendingCrashReport")]
-		[Verify (MethodToProperty)]
-		bool PurgePendingCrashReport { get; }
+		bool PurgePendingCrashReport ();
 
 		// -(BOOL)purgePendingCrashReportAndReturnError:(NSError **)outError;
 		[Export ("purgePendingCrashReportAndReturnError:")]
@@ -116,8 +111,7 @@ namespace CrashReporter
 
 		// -(BOOL)enableCrashReporter;
 		[Export ("enableCrashReporter")]
-		[Verify (MethodToProperty)]
-		bool EnableCrashReporter { get; }
+		bool EnableCrashReporter ();
 
 		// -(BOOL)enableCrashReporterAndReturnError:(NSError **)outError;
 		[Export ("enableCrashReporterAndReturnError:")]
@@ -125,12 +119,11 @@ namespace CrashReporter
 
 		// -(void)setCrashCallbacks:(PLCrashReporterCallbacks *)callbacks;
 		[Export ("setCrashCallbacks:")]
-		unsafe void SetCrashCallbacks (PLCrashReporterCallbacks* callbacks);
+		unsafe void SetCrashCallbacks (PLCrashReporterCallbacks callbacks);
 
 		// -(NSString *)crashReportPath;
 		[Export ("crashReportPath")]
-		[Verify (MethodToProperty)]
-		string CrashReportPath { get; }
+		string CrashReportPath ();
 
 		// @property (nonatomic, strong) NSData * customData;
 		[Export ("customData", ArgumentSemantic.Strong)]
@@ -273,7 +266,6 @@ namespace CrashReporter
 	{
 		// -(id)initWithThreadNumber:(NSInteger)threadNumber stackFrames:(NSArray *)stackFrames crashed:(BOOL)crashed registers:(NSArray *)registers;
 		[Export ("initWithThreadNumber:stackFrames:crashed:registers:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
 		IntPtr Constructor (nint threadNumber, NSObject[] stackFrames, bool crashed, NSObject[] registers);
 
 		// @property (readonly, nonatomic) NSInteger threadNumber;
@@ -282,7 +274,6 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic, strong) NSArray * stackFrames;
 		[Export ("stackFrames", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] StackFrames { get; }
 
 		// @property (readonly, nonatomic) BOOL crashed;
@@ -291,7 +282,6 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic, strong) NSArray * registers;
 		[Export ("registers", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] Registers { get; }
 	}
 
@@ -305,7 +295,6 @@ namespace CrashReporter
 
 		// -(id)initWithExceptionName:(NSString *)name reason:(NSString *)reason stackFrames:(NSArray *)stackFrames;
 		[Export ("initWithExceptionName:reason:stackFrames:")]
-		[Verify (StronglyTypedNSArray)]
 		IntPtr Constructor (string name, string reason, NSObject[] stackFrames);
 
 		// @property (readonly, nonatomic, strong) NSString * exceptionName;
@@ -318,7 +307,6 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic, strong) NSArray * stackFrames;
 		[Export ("stackFrames", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] StackFrames { get; }
 	}
 
@@ -353,7 +341,6 @@ namespace CrashReporter
 	{
 		// -(id)initWithType:(uint64_t)type codes:(NSArray *)codes;
 		[Export ("initWithType:codes:")]
-		[Verify (StronglyTypedNSArray)]
 		IntPtr Constructor (ulong type, NSObject[] codes);
 
 		// @property (readonly, nonatomic) uint64_t type;
@@ -362,7 +349,6 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic, strong) NSArray * codes;
 		[Export ("codes", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] Codes { get; }
 	}
 
@@ -425,7 +411,6 @@ namespace CrashReporter
 	}
 
 	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern PLCrashReportOperatingSystem PLCrashReportHostOperatingSystem;
@@ -524,12 +509,10 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic, strong) NSArray * threads;
 		[Export ("threads", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] Threads { get; }
 
 		// @property (readonly, nonatomic, strong) NSArray * images;
 		[Export ("images", ArgumentSemantic.Strong)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] Images { get; }
 
 		// @property (readonly, nonatomic) BOOL hasExceptionInfo;
@@ -546,7 +529,7 @@ namespace CrashReporter
 
 		// @property (readonly, nonatomic) CFUUIDRef uuidRef;
 		[Export ("uuidRef")]
-		unsafe CFUUIDRef* UuidRef { get; }
+		unsafe NSUuid UuidRef { get; }
 	}
 
 	// @protocol PLCrashReportFormatter
@@ -558,7 +541,11 @@ namespace CrashReporter
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface IPLCrashReportFormatter {}
+
+	[Model, Protocol]
+	[BaseType(typeof(NSObject))]
 	interface PLCrashReportFormatter
 	{
 		// @required -(NSData *)formatReport:(PLCrashReport *)report error:(NSError **)outError;
@@ -581,8 +568,6 @@ namespace CrashReporter
 		IntPtr Constructor (PLCrashReportTextFormat textFormat, nuint stringEncoding);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString * PLCrashReporterException;

@@ -26,9 +26,9 @@ namespace CrashReporter
 	{
 		public ushort version;
 
-		public unsafe void* context;
+		public unsafe IntPtr context;
 
-		public unsafe PLCrashReporterPostCrashSignalCallback* handleSignal;
+		public unsafe IntPtr handleSignal;
 	}
 
 	public enum PLCrashReportProcessorTypeEncoding : uint

@@ -56,10 +56,4 @@
     <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
     <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Swift" Version="1.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
 </Project>

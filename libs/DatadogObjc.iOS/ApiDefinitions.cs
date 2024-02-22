@@ -65,11 +65,11 @@ namespace DatadogObjc
 
 		// -(void)setEncryption:(id<DDDataEncryption> _Nonnull)encryption;
 		[Export ("setEncryption:")]
-		void SetEncryption (DDDataEncryption encryption);
+		void SetEncryption (IDDDataEncryption encryption);
 
 		// -(void)setServerDateProvider:(id<DDServerDateProvider> _Nonnull)serverDateProvider;
 		[Export ("setServerDateProvider:")]
-		void SetServerDateProvider (DDServerDateProvider serverDateProvider);
+		void SetServerDateProvider (IDDServerDateProvider serverDateProvider);
 
 		// @property (nonatomic, strong) NSBundle * _Nonnull bundle;
 		[Export ("bundle", ArgumentSemantic.Strong)]
@@ -90,7 +90,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc16DDDataEncryption_")]
+*/
+	partial interface IDDDataEncryption {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc16DDDataEncryption_")]
+	[BaseType(typeof(NSObject))]
 	interface DDDataEncryption
 	{
 		// @required -(NSData * _Nullable)encryptWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error __attribute__((warn_unused_result("")));
@@ -119,7 +123,6 @@ namespace DatadogObjc
 		// +(void)setVerbosityLevel:(enum DDSDKVerbosityLevel)verbosityLevel;
 		[Static]
 		[Export ("verbosityLevel")]
-		[Verify (MethodToProperty)]
 		DDSDKVerbosityLevel VerbosityLevel { get; set; }
 
 		// +(void)setUserInfoWithId:(NSString * _Nullable)id name:(NSString * _Nullable)name email:(NSString * _Nullable)email extraInfo:(NSDictionary<NSString *,id> * _Nonnull)extraInfo;
@@ -147,7 +150,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc28DDUITouchRUMActionsPredicate_")]
+*/
+	partial interface IDDUITouchRUMActionsPredicate {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc28DDUITouchRUMActionsPredicate_")]
+	[BaseType(typeof(NSObject))]
 	interface DDUITouchRUMActionsPredicate
 	{
 		// @required -(DDRUMAction * _Nullable)rumActionWithTargetView:(UIView * _Nonnull)targetView __attribute__((warn_unused_result("")));
@@ -166,8 +173,12 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc26DDUIKitRUMActionsPredicate_")]
-	interface DDUIKitRUMActionsPredicate : IDDUITouchRUMActionsPredicate
+*/
+	partial interface IDDUIKitRUMActionsPredicate {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc26DDUIKitRUMActionsPredicate_")]
+	[BaseType(typeof(NSObject))]
+	interface DDUIKitRUMActionsPredicate : DDUITouchRUMActionsPredicate
 	{
 	}
 
@@ -190,7 +201,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc24DDUIKitRUMViewsPredicate_")]
+*/
+	partial interface IDDUIKitRUMViewsPredicate {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc24DDUIKitRUMViewsPredicate_")]
+	[BaseType(typeof(NSObject))]
 	interface DDUIKitRUMViewsPredicate
 	{
 		// @required -(DDRUMView * _Nullable)rumViewFor:(UIViewController * _Nonnull)viewController __attribute__((warn_unused_result("")));
@@ -1019,11 +1034,11 @@ namespace DatadogObjc
 
 		// @property (nonatomic, strong) id<DDUIKitRUMViewsPredicate> _Nullable uiKitViewsPredicate;
 		[NullAllowed, Export ("uiKitViewsPredicate", ArgumentSemantic.Strong)]
-		DDUIKitRUMViewsPredicate UiKitViewsPredicate { get; set; }
+		IDDUIKitRUMViewsPredicate UiKitViewsPredicate { get; set; }
 
 		// @property (nonatomic, strong) id<DDUIKitRUMActionsPredicate> _Nullable uiKitActionsPredicate;
 		[NullAllowed, Export ("uiKitActionsPredicate", ArgumentSemantic.Strong)]
-		DDUIKitRUMActionsPredicate UiKitActionsPredicate { get; set; }
+		IDDUIKitRUMActionsPredicate UiKitActionsPredicate { get; set; }
 
 		// -(void)setURLSessionTracking:(DDRUMURLSessionTracking * _Nonnull)tracking;
 		[Export ("setURLSessionTracking:")]
@@ -2084,8 +2099,7 @@ namespace DatadogObjc
 		// +(DDRUMMonitor * _Nonnull)shared __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("shared")]
-		[Verify (MethodToProperty)]
-		DDRUMMonitor Shared { get; }
+		DDRUMMonitor Shared ();
 
 		// -(void)startViewWithViewController:(UIViewController * _Nonnull)viewController name:(NSString * _Nullable)name attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("startViewWithViewController:name:attributes:")]
@@ -3615,7 +3629,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc20DDServerDateProvider_")]
+*/
+	partial interface IDDServerDateProvider {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc20DDServerDateProvider_")]
+	[BaseType(typeof(NSObject))]
 	interface DDServerDateProvider
 	{
 		// @required -(void)synchronizeWithUpdate:(void (^ _Nonnull)(NSTimeInterval))update;
@@ -3666,38 +3684,32 @@ namespace DatadogObjc
 		// +(DDSite * _Nonnull)us1 __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("us1")]
-		[Verify (MethodToProperty)]
-		DDSite Us1 { get; }
+		DDSite Us1 ();
 
 		// +(DDSite * _Nonnull)us3 __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("us3")]
-		[Verify (MethodToProperty)]
-		DDSite Us3 { get; }
+		DDSite Us3 ();
 
 		// +(DDSite * _Nonnull)us5 __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("us5")]
-		[Verify (MethodToProperty)]
-		DDSite Us5 { get; }
+		DDSite Us5 ();
 
 		// +(DDSite * _Nonnull)eu1 __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("eu1")]
-		[Verify (MethodToProperty)]
-		DDSite Eu1 { get; }
+		DDSite Eu1 ();
 
 		// +(DDSite * _Nonnull)ap1 __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("ap1")]
-		[Verify (MethodToProperty)]
-		DDSite Ap1 { get; }
+		DDSite Ap1 ();
 
 		// +(DDSite * _Nonnull)us1_fed __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("us1_fed")]
-		[Verify (MethodToProperty)]
-		DDSite Us1_fed { get; }
+		DDSite Us1_fed ();
 	}
 
 	// @interface DDTelemetryConfigurationEvent : NSObject
@@ -4431,38 +4443,42 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc8OTTracer_")]
+*/
+	partial interface IOTTracer {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc8OTTracer_")]
+	[BaseType(typeof(NSObject))]
 	interface OTTracer
 	{
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("startSpan:")]
-		OTSpan StartSpan (string operationName);
+		IOTSpan StartSpan (string operationName);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("startSpan:tags:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan (string operationName, [NullAllowed] NSDictionary tags);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("startSpan:childOf:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("startSpan:childOf:tags:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags);
 
 		// @required -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags startTime:(NSDate * _Nullable)startTime __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("startSpan:childOf:tags:startTime:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
 
 		// @required -(BOOL)inject:(id<OTSpanContext> _Nonnull)spanContext format:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Abstract]
 		[Export ("inject:format:carrier:error:")]
-		bool Inject (OTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
+		bool Inject (IOTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
 
 		// @required -(BOOL)extractWithFormat:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Abstract]
@@ -4478,32 +4494,31 @@ namespace DatadogObjc
 		// +(id<OTTracer> _Nonnull)shared __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("shared")]
-		[Verify (MethodToProperty)]
-		OTTracer Shared { get; }
+		IOTTracer Shared ();
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName __attribute__((warn_unused_result("")));
 		[Export ("startSpan:")]
-		OTSpan StartSpan (string operationName);
+		IOTSpan StartSpan (string operationName);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result("")));
 		[Export ("startSpan:tags:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan (string operationName, [NullAllowed] NSDictionary tags);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent __attribute__((warn_unused_result("")));
 		[Export ("startSpan:childOf:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags __attribute__((warn_unused_result("")));
 		[Export ("startSpan:childOf:tags:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags);
 
 		// -(id<OTSpan> _Nonnull)startSpan:(NSString * _Nonnull)operationName childOf:(id<OTSpanContext> _Nullable)parent tags:(NSDictionary * _Nullable)tags startTime:(NSDate * _Nullable)startTime __attribute__((warn_unused_result("")));
 		[Export ("startSpan:childOf:tags:startTime:")]
-		OTSpan StartSpan (string operationName, [NullAllowed] OTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
+		IOTSpan StartSpan (string operationName, [NullAllowed] IOTSpanContext parent, [NullAllowed] NSDictionary tags, [NullAllowed] NSDate startTime);
 
 		// -(BOOL)inject:(id<OTSpanContext> _Nonnull)spanContext format:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Export ("inject:format:carrier:error:")]
-		bool Inject (OTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
+		bool Inject (IOTSpanContext spanContext, string format, NSObject carrier, [NullAllowed] out NSError error);
 
 		// -(BOOL)extractWithFormat:(NSString * _Nonnull)format carrier:(id _Nonnull)carrier error:(NSError * _Nullable * _Nullable)error;
 		[Export ("extractWithFormat:carrier:error:")]
@@ -4544,20 +4559,17 @@ namespace DatadogObjc
 		// +(DDTrackingConsent * _Nonnull)granted __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("granted")]
-		[Verify (MethodToProperty)]
-		DDTrackingConsent Granted { get; }
+		DDTrackingConsent Granted();
 
 		// +(DDTrackingConsent * _Nonnull)notGranted __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("notGranted")]
-		[Verify (MethodToProperty)]
-		DDTrackingConsent NotGranted { get; }
+		DDTrackingConsent NotGranted ();
 
 		// +(DDTrackingConsent * _Nonnull)pending __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("pending")]
-		[Verify (MethodToProperty)]
-		DDTrackingConsent Pending { get; }
+		DDTrackingConsent Pending ();
 	}
 
 	// @protocol DDUIPressRUMActionsPredicate
@@ -4569,7 +4581,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc28DDUIPressRUMActionsPredicate_")]
+*/
+	partial interface IDDUIPressRUMActionsPredicate {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc28DDUIPressRUMActionsPredicate_")]
+	[BaseType(typeof(NSObject))]
 	interface DDUIPressRUMActionsPredicate
 	{
 		// @required -(DDRUMAction * _Nullable)rumActionWithPress:(enum UIPressType)type targetView:(UIView * _Nonnull)targetView __attribute__((warn_unused_result("")));
@@ -4667,18 +4683,22 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc6OTSpan_")]
+*/
+	partial interface IOTSpan {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc6OTSpan_")]
+	[BaseType(typeof(NSObject))]
 	interface OTSpan
 	{
 		// @required @property (readonly, nonatomic, strong) id<OTSpanContext> _Nonnull context;
 		[Abstract]
 		[Export ("context", ArgumentSemantic.Strong)]
-		OTSpanContext Context { get; }
+		IOTSpanContext Context { get; }
 
 		// @required @property (readonly, nonatomic, strong) id<OTTracer> _Nonnull tracer;
 		[Abstract]
 		[Export ("tracer", ArgumentSemantic.Strong)]
-		OTTracer Tracer { get; }
+		IOTTracer Tracer { get; }
 
 		// @required -(void)setOperationName:(NSString * _Nonnull)operationName;
 		[Abstract]
@@ -4713,7 +4733,7 @@ namespace DatadogObjc
 		// @required -(id<OTSpan> _Nonnull)setBaggageItem:(NSString * _Nonnull)key value:(NSString * _Nonnull)value __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("setBaggageItem:value:")]
-		OTSpan SetBaggageItem (string key, string value);
+		IOTSpan SetBaggageItem (string key, string value);
 
 		// @required -(NSString * _Nullable)getBaggageItem:(NSString * _Nonnull)key __attribute__((warn_unused_result("")));
 		[Abstract]
@@ -4744,8 +4764,7 @@ namespace DatadogObjc
 		// @required -(id<OTSpan> _Nonnull)setActive;
 		[Abstract]
 		[Export ("setActive")]
-		[Verify (MethodToProperty)]
-		OTSpan SetActive { get; }
+		IOTSpan SetActive();
 	}
 
 	// @protocol OTSpanContext
@@ -4757,7 +4776,11 @@ namespace DatadogObjc
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP11DatadogObjc13OTSpanContext_")]
+*/
+	partial interface IOTSpanContext {}
+
+	[Model, Protocol (Name = "_TtP11DatadogObjc13OTSpanContext_")]
+	[BaseType(typeof(NSObject))]
 	interface OTSpanContext
 	{
 		// @required -(void)forEachBaggageItem:(BOOL (^ _Nonnull)(NSString * _Nonnull, NSString * _Nonnull))callback;
@@ -4766,16 +4789,15 @@ namespace DatadogObjc
 		void ForEachBaggageItem (Func<NSString, NSString, bool> callback);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double DatadogObjcVersionNumber;
-		[Field ("DatadogObjcVersionNumber", "__Internal")]
-		double DatadogObjcVersionNumber { get; }
+	// [Static]
+	// partial interface Constants
+	// {
+	// 	// extern double DatadogObjcVersionNumber;
+	// 	[Field ("DatadogObjcVersionNumber", "__Internal")]
+	// 	double DatadogObjcVersionNumber { get; }
 
-		// extern const unsigned char[] DatadogObjcVersionString;
-		[Field ("DatadogObjcVersionString", "__Internal")]
-		byte[] DatadogObjcVersionString { get; }
-	}
+	// 	// extern const unsigned char[] DatadogObjcVersionString;
+	// 	[Field ("DatadogObjcVersionString", "__Internal")]
+	// 	byte[] DatadogObjcVersionString { get; }
+	// }
 }

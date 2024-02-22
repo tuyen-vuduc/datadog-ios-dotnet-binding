@@ -1,12 +1,13 @@
 using DatadogInternal;
 using Foundation;
 using ObjCRuntime;
+using System;
 
 namespace DatadogInternal
 {
 	// @interface DatadogURLSessionDelegate : NSObject <NSURLSessionDataDelegate>
 	[BaseType (typeof(NSObject), Name = "_TtC15DatadogInternal25DatadogURLSessionDelegate")]
-	interface DatadogURLSessionDelegate : INSUrlSessionDataDelegate
+	partial interface DatadogURLSessionDelegate : INSUrlSessionDataDelegate
 	{
 		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHosts:(NSSet<NSString *> * _Nonnull)additionalFirstPartyHosts;
 		[Export ("initWithAdditionalFirstPartyHosts:")]
@@ -34,7 +35,11 @@ namespace DatadogInternal
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP15DatadogInternal29__URLSessionDelegateProviding_")]
+*/
+	partial interface I__URLSessionDelegateProviding {}
+
+	[Model, Protocol (Name = "_TtP15DatadogInternal29__URLSessionDelegateProviding_")]
+	[BaseType(typeof(NSObject))]
 	interface __URLSessionDelegateProviding : INSUrlSessionDelegate
 	{
 		[Wrap ("WeakDdURLSessionDelegate"), Abstract]
@@ -47,15 +52,15 @@ namespace DatadogInternal
 	}
 
 	// @interface DatadogInternal_Swift_681 (DatadogURLSessionDelegate) <__URLSessionDelegateProviding>
-	[Category]
-	[BaseType (typeof(DatadogURLSessionDelegate))]
-	interface DatadogURLSessionDelegate_DatadogInternal_Swift_681 : I__URLSessionDelegateProviding
+	// [Category]
+	// [BaseType (typeof(DatadogURLSessionDelegate))]
+	partial interface DatadogURLSessionDelegate : __URLSessionDelegateProviding
 	{
-		[Wrap ("WeakDdURLSessionDelegate")]
-		DatadogURLSessionDelegate DdURLSessionDelegate { get; }
+		// [Wrap ("WeakDdURLSessionDelegate")]
+		// DatadogURLSessionDelegate DdURLSessionDelegate();
 
-		// @property (readonly, nonatomic, strong) DatadogURLSessionDelegate * _Nonnull ddURLSessionDelegate;
-		[NullAllowed, Export ("ddURLSessionDelegate", ArgumentSemantic.Strong)]
-		NSObject WeakDdURLSessionDelegate { get; }
+		// // @property (readonly, nonatomic, strong) DatadogURLSessionDelegate * _Nonnull ddURLSessionDelegate;
+		// [NullAllowed, Export ("ddURLSessionDelegate", ArgumentSemantic.Strong)]
+		// NSObject WeakDdURLSessionDelegate ();
 	}
 }

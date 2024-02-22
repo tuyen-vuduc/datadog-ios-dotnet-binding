@@ -12,16 +12,15 @@ namespace DatadogCrashReporting
 		void Enable ();
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double DatadogCrashReportingVersionNumber;
-		[Field ("DatadogCrashReportingVersionNumber", "__Internal")]
-		double DatadogCrashReportingVersionNumber { get; }
+	// [Static]
+	// partial interface Constants
+	// {
+	// 	// extern double DatadogCrashReportingVersionNumber;
+	// 	[Field ("DatadogCrashReportingVersionNumber", "__Internal")]
+	// 	double DatadogCrashReportingVersionNumber { get; }
 
-		// extern const unsigned char[] DatadogCrashReportingVersionString;
-		[Field ("DatadogCrashReportingVersionString", "__Internal")]
-		byte[] DatadogCrashReportingVersionString { get; }
-	}
+	// 	// extern const unsigned char[] DatadogCrashReportingVersionString;
+	// 	[Field ("DatadogCrashReportingVersionString", "__Internal")]
+	// 	byte[] DatadogCrashReportingVersionString { get; }
+	// }
 }
