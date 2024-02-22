@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>xamarin.ios10;net6.0-ios;net7.0-ios;</TargetFrameworks>
+      <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
+      <IsBindingProject>true</IsBindingProject>
+      <NoBindingEmbedding>false</NoBindingEmbedding>
+      <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_NativeVersion>2.7.1</_NativeVersion>
+    <_NugetSuffix></_NugetSuffix>
+    <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>DatadogCrashReporting.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>DatadogCrashReporting.iOS</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
+    <FileVersion>$(_NativeVersion)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>DatadogCrashReporting.iOS</PackageId>
+    <Title>DatadogCrashReporting library for .NET iOS</Title>
+    <Summary>C# bindings for DatadogCrashReporting</Summary>
+    <Description>C# bindings for DatadogCrashReporting</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>$(_NugetVersion)</PackageVersion>
+    <PackageTags>DatadogCrashReporting</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatadogCrashReporting.iOS.targets" Pack="True" PackagePath="build/DatadogCrashReporting.iOS.targets" />
+    <None Include="DatadogCrashReporting.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogCrashReporting.iOS.targets" />
+    <None Include="../../Carthage/Build/DatadogCrashReporting.xcframework/" Pack="True" PackagePath="artifacts\DatadogCrashReporting.framework" />
+  </ItemGroup>
+  <ItemGroup>
+    <_NativeReference Include="../../Carthage/Build/DatadogCrashReporting.xcframework">
+        <_Id>$(_DatadogCrashReportingId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+      <Compile Remove="ApiDefinitions.cs" />
+      <Compile Remove="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
+    <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Swift" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <ProjectReference Include="../DatadogCore.iOS/DatadogCore.iOS.csproj" />
+    <ProjectReference Include="../CrashReporter.iOS/CrashReporter.iOS.csproj" />
+  </ItemGroup>
+</Project>

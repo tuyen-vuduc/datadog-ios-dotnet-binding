@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>xamarin.ios10;net6.0-ios;net7.0-ios;</TargetFrameworks>
+      <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
+      <IsBindingProject>true</IsBindingProject>
+      <NoBindingEmbedding>false</NoBindingEmbedding>
+      <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_NativeVersion>2.7.1</_NativeVersion>
+    <_NugetSuffix></_NugetSuffix>
+    <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>DatadogSessionReplay.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>DatadogSessionReplay.iOS</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
+    <FileVersion>$(_NativeVersion)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>DatadogSessionReplay.iOS</PackageId>
+    <Title>DatadogSessionReplay library for .NET iOS</Title>
+    <Summary>C# bindings for DatadogSessionReplay</Summary>
+    <Description>C# bindings for DatadogSessionReplay</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>$(_NugetVersion)</PackageVersion>
+    <PackageTags>DatadogSessionReplay</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatadogSessionReplay.iOS.targets" Pack="True" PackagePath="build/DatadogSessionReplay.iOS.targets" />
+    <None Include="DatadogSessionReplay.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogSessionReplay.iOS.targets" />
+    <None Include="../../Carthage/Build/DatadogSessionReplay.xcframework/" Pack="True" PackagePath="artifacts\DatadogSessionReplay.framework" />
+  </ItemGroup>
+  <ItemGroup>
+    <_NativeReference Include="../../Carthage/Build/DatadogSessionReplay.xcframework">
+        <_Id>$(_DatadogSessionReplayId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+      <Compile Remove="ApiDefinitions.cs" />
+      <Compile Remove="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Condition=" EXISTS('ApiDefinitions.cs') " Include="ApiDefinitions.cs" />
+    <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Swift" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <ProjectReference Include="../DatadogCore.iOS/DatadogCore.iOS.csproj" />
+    <ProjectReference Include="../DatadogInternal.iOS/DatadogInternal.iOS.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>xamarin.ios10;net6.0-ios;net7.0-ios;</TargetFrameworks>
+      <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
+      <IsBindingProject>true</IsBindingProject>
+      <NoBindingEmbedding>false</NoBindingEmbedding>
+      <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_NativeVersion>2.7.1</_NativeVersion>
+    <_NugetSuffix></_NugetSuffix>
+    <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>DatadogCore.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>DatadogCore.iOS</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
+    <FileVersion>$(_NativeVersion)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>DatadogCore.iOS</PackageId>
+    <Title>DatadogCore library for .NET iOS</Title>
+    <Summary>C# bindings for DatadogCore</Summary>
+    <Description>C# bindings for DatadogCore</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>$(_NugetVersion)</PackageVersion>
+    <PackageTags>DatadogCore</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DatadogCore.iOS.targets" Pack="True" PackagePath="build/DatadogCore.iOS.targets" />
+    <None Include="DatadogCore.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogCore.iOS.targets" />
+    <None Include="../../Carthage/Build/DatadogCore.xcframework/" Pack="True" PackagePath="artifacts\DatadogCore.framework" />
+  </ItemGroup>
+  <ItemGroup>
+    <_NativeReference Include="../../Carthage/Build/DatadogCore.xcframework">
+        <_Id>$(_DatadogCoreId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+      <Compile Remove="ApiDefinitions.cs" />
+      <Compile Remove="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
+    <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Swift" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
