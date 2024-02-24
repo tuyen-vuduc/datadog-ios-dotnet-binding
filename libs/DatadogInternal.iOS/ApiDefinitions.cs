@@ -42,9 +42,6 @@ namespace DatadogInternal
 	[BaseType(typeof(NSObject))]
 	interface __URLSessionDelegateProviding : INSUrlSessionDelegate
 	{
-		[Wrap ("WeakDdURLSessionDelegate"), Abstract]
-		DatadogURLSessionDelegate DdURLSessionDelegate { get; }
-
 		// @required @property (readonly, nonatomic, strong) DatadogURLSessionDelegate * _Nonnull ddURLSessionDelegate;
 		[Abstract]
 		[NullAllowed, Export ("ddURLSessionDelegate", ArgumentSemantic.Strong)]

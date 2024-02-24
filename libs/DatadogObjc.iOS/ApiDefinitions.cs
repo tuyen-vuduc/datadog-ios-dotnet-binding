@@ -2,7 +2,6 @@ using System;
 using DatadogObjc;
 using Foundation;
 using ObjCRuntime;
-using ObjectiveC;
 using UIKit;
 
 namespace DatadogObjc
@@ -16,9 +15,9 @@ namespace DatadogObjc
 		[Export ("traceHeaderFields", ArgumentSemantic.Copy)]
 		NSDictionary<NSString, NSString> TraceHeaderFields { get; }
 
-		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:injectEncoding:)` instead.")));
-		[Export ("initWithSamplingRate:injectEncoding:")]
-		IntPtr Constructor (float samplingRate, DDInjectEncoding injectEncoding);
+		//// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:injectEncoding:)` instead.")));
+		//[Export ("initWithSamplingRate:injectEncoding:")]
+		//IntPtr Constructor (float samplingRate, DDInjectEncoding injectEncoding);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate injectEncoding:(enum DDInjectEncoding)injectEncoding __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:injectEncoding:")]
@@ -234,9 +233,9 @@ namespace DatadogObjc
 		[Export ("traceHeaderFields", ArgumentSemantic.Copy)]
 		NSDictionary<NSString, NSString> TraceHeaderFields { get; }
 
-		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
-		[Export ("initWithSamplingRate:")]
-		IntPtr Constructor (float samplingRate);
+		//// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
+		//[Export ("initWithSamplingRate:")]
+		//IntPtr Constructor (float samplingRate);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:")]
@@ -409,19 +408,19 @@ namespace DatadogObjc
 	[DisableDefaultCtor]
 	interface DDLogsConfiguration
 	{
-		// @property (copy, nonatomic) NSURL * _Nullable customEndpoint;
+		// @property (copy, nonatomic) NSUrl * _Nullable customEndpoint;
 		[NullAllowed, Export ("customEndpoint", ArgumentSemantic.Copy)]
 		NSUrl CustomEndpoint { get; set; }
 
-		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate customEndpoint:(NSURL * _Nullable)customEndpoint __attribute__((objc_designated_initializer));
+		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate customEndpoint:(NSUrl * _Nullable)customEndpoint __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:customEndpoint:")]
 		[DesignatedInitializer]
 		IntPtr Constructor (float sampleRate, [NullAllowed] NSUrl customEndpoint);
 	}
 
-	// @interface DDNSURLSessionDelegate : NSObject <NSURLSessionDataDelegate>
-	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc22DDNSURLSessionDelegate")]
-	interface DDNSURLSessionDelegate : INSUrlSessionDataDelegate
+	// @interface DDNSUrlSessionDelegate : NSObject <NSUrlSessionDataDelegate>
+	[BaseType (typeof(NSObject), Name = "_TtC11DatadogObjc22DDNSUrlSessionDelegate")]
+	interface DDNSUrlSessionDelegate : INSUrlSessionDataDelegate
 	{
 		// -(instancetype _Nonnull)initWithAdditionalFirstPartyHostsWithHeaderTypes:(NSDictionary<NSString *,NSSet<DDTracingHeaderType *> *> * _Nonnull)additionalFirstPartyHostsWithHeaderTypes __attribute__((objc_designated_initializer));
 		[Export ("initWithAdditionalFirstPartyHostsWithHeaderTypes:")]
@@ -763,7 +762,7 @@ namespace DatadogObjc
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable selector;
 		[NullAllowed, Export ("selector")]
-		string Selector { get; }
+		string TargetSelector { get; }
 
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable width;
 		[NullAllowed, Export ("width", ArgumentSemantic.Strong)]
@@ -1084,7 +1083,7 @@ namespace DatadogObjc
 		[NullAllowed, Export ("onSessionStart", ArgumentSemantic.Copy)]
 		Action<NSString, bool> OnSessionStart { get; set; }
 
-		// @property (copy, nonatomic) NSURL * _Nullable customEndpoint;
+		// @property (copy, nonatomic) NSUrl * _Nullable customEndpoint;
 		[NullAllowed, Export ("customEndpoint", ArgumentSemantic.Copy)]
 		NSUrl CustomEndpoint { get; set; }
 	}
@@ -2129,11 +2128,11 @@ namespace DatadogObjc
 		[Export ("addErrorWithError:source:attributes:")]
 		void AddErrorWithError (NSError error, DDRUMErrorSource source, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)startResourceWithResourceKey:(NSString * _Nonnull)resourceKey request:(NSURLRequest * _Nonnull)request attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)startResourceWithResourceKey:(NSString * _Nonnull)resourceKey request:(NSUrlRequest * _Nonnull)request attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("startResourceWithResourceKey:request:attributes:")]
 		void StartResourceWithResourceKey (string resourceKey, NSUrlRequest request, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)startResourceWithResourceKey:(NSString * _Nonnull)resourceKey url:(NSURL * _Nonnull)url attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)startResourceWithResourceKey:(NSString * _Nonnull)resourceKey url:(NSUrl * _Nonnull)url attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("startResourceWithResourceKey:url:attributes:")]
 		void StartResourceWithResourceKey (string resourceKey, NSUrl url, NSDictionary<NSString, NSObject> attributes);
 
@@ -2141,11 +2140,11 @@ namespace DatadogObjc
 		[Export ("startResourceWithResourceKey:httpMethod:urlString:attributes:")]
 		void StartResourceWithResourceKey (string resourceKey, DDRUMMethod httpMethod, string urlString, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)addResourceMetricsWithResourceKey:(NSString * _Nonnull)resourceKey metrics:(NSURLSessionTaskMetrics * _Nonnull)metrics attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)addResourceMetricsWithResourceKey:(NSString * _Nonnull)resourceKey metrics:(NSUrlSessionTaskMetrics * _Nonnull)metrics attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("addResourceMetricsWithResourceKey:metrics:attributes:")]
 		void AddResourceMetricsWithResourceKey (string resourceKey, NSUrlSessionTaskMetrics metrics, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)stopResourceWithResourceKey:(NSString * _Nonnull)resourceKey response:(NSURLResponse * _Nonnull)response size:(NSNumber * _Nullable)size attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)stopResourceWithResourceKey:(NSString * _Nonnull)resourceKey response:(NSUrlResponse * _Nonnull)response size:(NSNumber * _Nullable)size attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("stopResourceWithResourceKey:response:size:attributes:")]
 		void StopResourceWithResourceKey (string resourceKey, NSUrlResponse response, [NullAllowed] NSNumber size, NSDictionary<NSString, NSObject> attributes);
 
@@ -2153,11 +2152,11 @@ namespace DatadogObjc
 		[Export ("stopResourceWithResourceKey:statusCode:kind:size:attributes:")]
 		void StopResourceWithResourceKey (string resourceKey, [NullAllowed] NSNumber statusCode, DDRUMResourceType kind, [NullAllowed] NSNumber size, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)stopResourceWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey error:(NSError * _Nonnull)error response:(NSURLResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)stopResourceWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey error:(NSError * _Nonnull)error response:(NSUrlResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("stopResourceWithErrorWithResourceKey:error:response:attributes:")]
 		void StopResourceWithErrorWithResourceKey (string resourceKey, NSError error, [NullAllowed] NSUrlResponse response, NSDictionary<NSString, NSObject> attributes);
 
-		// -(void)stopResourceWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey message:(NSString * _Nonnull)message response:(NSURLResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
+		// -(void)stopResourceWithErrorWithResourceKey:(NSString * _Nonnull)resourceKey message:(NSString * _Nonnull)message response:(NSUrlResponse * _Nullable)response attributes:(NSDictionary<NSString *,id> * _Nonnull)attributes;
 		[Export ("stopResourceWithErrorWithResourceKey:message:response:attributes:")]
 		void StopResourceWithErrorWithResourceKey (string resourceKey, string message, [NullAllowed] NSUrlResponse response, NSDictionary<NSString, NSObject> attributes);
 
@@ -2806,9 +2805,9 @@ namespace DatadogObjc
 		[Export ("setFirstPartyHostsTracing:")]
 		void SetFirstPartyHostsTracing (DDRUMFirstPartyHostsTracing firstPartyHostsTracing);
 
-		// -(void)setResourceAttributesProvider:(NSDictionary<NSString *,id> * _Nullable (^ _Nonnull)(NSURLRequest * _Nonnull, NSURLResponse * _Nullable, NSData * _Nullable, NSError * _Nullable))provider;
+		// -(void)setResourceAttributesProvider:(NSDictionary<NSString *,id> * _Nullable (^ _Nonnull)(NSUrlRequest * _Nonnull, NSUrlResponse * _Nullable, NSData * _Nullable, NSError * _Nullable))provider;
 		[Export ("setResourceAttributesProvider:")]
-		void SetResourceAttributesProvider (Func<NSURLRequest, NSURLResponse, NSData, NSError, NSDictionary<NSString, NSObject>> provider);
+		void SetResourceAttributesProvider (Func<NSUrlRequest, NSUrlResponse, NSData, NSError, NSDictionary<NSString, NSObject>> provider);
 	}
 
 	// @interface DDRUMView : NSObject
@@ -3666,7 +3665,7 @@ namespace DatadogObjc
 		[Export ("defaultPrivacyLevel", ArgumentSemantic.Assign)]
 		DDSessionReplayConfigurationPrivacyLevel DefaultPrivacyLevel { get; set; }
 
-		// @property (copy, nonatomic) NSURL * _Nullable customEndpoint;
+		// @property (copy, nonatomic) NSUrl * _Nullable customEndpoint;
 		[NullAllowed, Export ("customEndpoint", ArgumentSemantic.Copy)]
 		NSUrl CustomEndpoint { get; set; }
 
@@ -4388,7 +4387,7 @@ namespace DatadogObjc
 		[Export ("networkInfoEnabled")]
 		bool NetworkInfoEnabled { get; set; }
 
-		// @property (copy, nonatomic) NSURL * _Nullable customEndpoint;
+		// @property (copy, nonatomic) NSUrl * _Nullable customEndpoint;
 		[NullAllowed, Export ("customEndpoint", ArgumentSemantic.Copy)]
 		NSUrl CustomEndpoint { get; set; }
 	}
@@ -4604,7 +4603,7 @@ namespace DatadogObjc
 		[Export ("enableWithConfiguration:")]
 		void EnableWithConfiguration (DDURLSessionInstrumentationConfiguration configuration);
 
-		// +(void)disableWithDelegateClass:(Class<NSURLSessionDataDelegate> _Nonnull)delegateClass;
+		// +(void)disableWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass;
 		[Static]
 		[Export ("disableWithDelegateClass:")]
 		void DisableWithDelegateClass (NSUrlSessionDataDelegate delegateClass);
@@ -4615,7 +4614,7 @@ namespace DatadogObjc
 	[DisableDefaultCtor]
 	interface DDURLSessionInstrumentationConfiguration
 	{
-		// -(instancetype _Nonnull)initWithDelegateClass:(Class<NSURLSessionDataDelegate> _Nonnull)delegateClass __attribute__((objc_designated_initializer));
+		// -(instancetype _Nonnull)initWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass __attribute__((objc_designated_initializer));
 		[Export ("initWithDelegateClass:")]
 		[DesignatedInitializer]
 		IntPtr Constructor (NSUrlSessionDataDelegate delegateClass);
@@ -4624,7 +4623,7 @@ namespace DatadogObjc
 		[Export ("setFirstPartyHostsTracing:")]
 		void SetFirstPartyHostsTracing (DDURLSessionInstrumentationFirstPartyHostsTracing firstPartyHostsTracing);
 
-		// @property (nonatomic) Class<NSURLSessionDataDelegate> _Nonnull delegateClass;
+		// @property (nonatomic) Class<NSUrlSessionDataDelegate> _Nonnull delegateClass;
 		[Export ("delegateClass", ArgumentSemantic.Assign)]
 		NSUrlSessionDataDelegate DelegateClass { get; set; }
 	}
@@ -4654,9 +4653,9 @@ namespace DatadogObjc
 		[Export ("traceHeaderFields", ArgumentSemantic.Copy)]
 		NSDictionary<NSString, NSString> TraceHeaderFields { get; }
 
-		// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
-		[Export ("initWithSamplingRate:")]
-		IntPtr Constructor (float samplingRate);
+		//// -(instancetype _Nonnull)initWithSamplingRate:(float)samplingRate __attribute__((deprecated("This will be removed in future versions of the SDK. Use `init(sampleRate:)` instead.")));
+		//[Export ("initWithSamplingRate:")]
+		//IntPtr Constructor (float samplingRate);
 
 		// -(instancetype _Nonnull)initWithSampleRate:(float)sampleRate __attribute__((objc_designated_initializer));
 		[Export ("initWithSampleRate:")]
