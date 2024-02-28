@@ -5,7 +5,7 @@
     <_DatadogSessionReplayId>DatadogSessionReplay</_DatadogSessionReplayId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogSessionReplay.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogSessionReplay.xcframework">
         <_Id>$(_DatadogSessionReplayId)</_Id>
     </_NativeReference>
   </ItemGroup>

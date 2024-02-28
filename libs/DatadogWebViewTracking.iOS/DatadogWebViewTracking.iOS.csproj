@@ -41,7 +41,7 @@
   <ItemGroup>
     <None Include="DatadogWebViewTracking.iOS.targets" Pack="True" PackagePath="build/DatadogWebViewTracking.iOS.targets" />
     <None Include="DatadogWebViewTracking.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogWebViewTracking.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogWebViewTracking.xcframework/" Pack="True" PackagePath="artifacts\DatadogWebViewTracking.framework" />
+    <None Include="../../Carthage/Build/DatadogWebViewTracking.xcframework/" Pack="True" PackagePath="artifacts\DatadogWebViewTracking.xcframework" />
   </ItemGroup>
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogWebViewTracking.xcframework">

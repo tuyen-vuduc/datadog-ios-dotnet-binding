@@ -4603,10 +4603,10 @@ namespace DatadogObjc
 		[Export ("enableWithConfiguration:")]
 		void EnableWithConfiguration (DDURLSessionInstrumentationConfiguration configuration);
 
-		// +(void)disableWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass;
-		[Static]
-		[Export ("disableWithDelegateClass:")]
-		void DisableWithDelegateClass (NSUrlSessionDataDelegate delegateClass);
+		// // +(void)disableWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass;
+		// [Static]
+		// [Export ("disableWithDelegateClass:")]
+		// void DisableWithDelegateClass (NSUrlSessionDataDelegate delegateClass);
 	}
 
 	// @interface DDURLSessionInstrumentationConfiguration : NSObject
@@ -4614,18 +4614,18 @@ namespace DatadogObjc
 	[DisableDefaultCtor]
 	interface DDURLSessionInstrumentationConfiguration
 	{
-		// -(instancetype _Nonnull)initWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass __attribute__((objc_designated_initializer));
-		[Export ("initWithDelegateClass:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (NSUrlSessionDataDelegate delegateClass);
+		// // -(instancetype _Nonnull)initWithDelegateClass:(Class<NSUrlSessionDataDelegate> _Nonnull)delegateClass __attribute__((objc_designated_initializer));
+		// [Export ("initWithDelegateClass:")]
+		// [DesignatedInitializer]
+		// IntPtr Constructor (NSUrlSessionDataDelegate delegateClass);
 
 		// -(void)setFirstPartyHostsTracing:(DDURLSessionInstrumentationFirstPartyHostsTracing * _Nonnull)firstPartyHostsTracing;
 		[Export ("setFirstPartyHostsTracing:")]
 		void SetFirstPartyHostsTracing (DDURLSessionInstrumentationFirstPartyHostsTracing firstPartyHostsTracing);
 
-		// @property (nonatomic) Class<NSUrlSessionDataDelegate> _Nonnull delegateClass;
-		[Export ("delegateClass", ArgumentSemantic.Assign)]
-		NSUrlSessionDataDelegate DelegateClass { get; set; }
+		// // @property (nonatomic) Class<NSUrlSessionDataDelegate> _Nonnull delegateClass;
+		// [Export ("delegateClass", ArgumentSemantic.Assign)]
+		// NSUrlSessionDataDelegate DelegateClass { get; set; }
 	}
 
 	// @interface DDURLSessionInstrumentationFirstPartyHostsTracing : NSObject

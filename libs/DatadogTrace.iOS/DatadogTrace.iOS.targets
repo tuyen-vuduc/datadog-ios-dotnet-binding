@@ -5,7 +5,7 @@
     <_DatadogTraceId>DatadogTrace</_DatadogTraceId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogTrace.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogTrace.xcframework">
         <_Id>$(_DatadogTraceId)</_Id>
     </_NativeReference>
   </ItemGroup>

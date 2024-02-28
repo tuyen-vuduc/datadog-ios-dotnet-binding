@@ -41,7 +41,7 @@
   <ItemGroup>
     <None Include="DatadogLogs.iOS.targets" Pack="True" PackagePath="build/DatadogLogs.iOS.targets" />
     <None Include="DatadogLogs.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogLogs.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogLogs.xcframework/" Pack="True" PackagePath="artifacts\DatadogLogs.framework" />
+    <None Include="../../Carthage/Build/DatadogLogs.xcframework/" Pack="True" PackagePath="artifacts\DatadogLogs.xcframework" />
   </ItemGroup>
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogLogs.xcframework">

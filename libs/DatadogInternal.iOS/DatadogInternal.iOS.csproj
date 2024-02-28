@@ -41,7 +41,7 @@
   <ItemGroup>
     <None Include="DatadogInternal.iOS.targets" Pack="True" PackagePath="build/DatadogInternal.iOS.targets" />
     <None Include="DatadogInternal.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogInternal.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogInternal.xcframework/" Pack="True" PackagePath="artifacts\DatadogInternal.framework" />
+    <None Include="../../Carthage/Build/DatadogInternal.xcframework/" Pack="True" PackagePath="artifacts\DatadogInternal.xcframework" />
   </ItemGroup>
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogInternal.xcframework">

@@ -1,4 +1,6 @@
-﻿namespace DatadogIOSQs;
+﻿using DatadogObjc;
+
+namespace DatadogIOSQs;
 
 [Register ("AppDelegate")]
 public class AppDelegate : UIApplicationDelegate {
@@ -12,8 +14,13 @@ public class AppDelegate : UIApplicationDelegate {
 		// create a new window instance based on the screen size
 		Window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-		// create a UIViewController with a single UILabel
-		var vc = new UIViewController ();
+		var datadogConfig = new DDConfiguration("YOUR_CLIENT_TOKEN", "YOUR_ENV");
+		datadogConfig.Service = "YOUR_SERVICE";
+		var datadogConsent = DDTrackingConsent.Granted();
+		DDDatadog.InitializeWithConfiguration(datadogConfig, datadogConsent);
+
+        // create a UIViewController with a single UILabel
+        var vc = new UIViewController ();
 		vc.View!.AddSubview (new UILabel (Window!.Frame) {
 			BackgroundColor = UIColor.SystemBackground,
 			TextAlignment = UITextAlignment.Center,

@@ -5,7 +5,7 @@
     <_CrashReporterId>CrashReporter</_CrashReporterId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\CrashReporter.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\CrashReporter.xcframework">
         <_Id>$(_CrashReporterId)</_Id>
     </_NativeReference>
   </ItemGroup>

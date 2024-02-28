@@ -12,4 +12,9 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DatadogRUM.iOS" Version="2.7.1" />
+    <PackageReference Include="DatadogCore.iOS" Version="2.7.1" />
+    <PackageReference Include="DatadogObjc.iOS" Version="2.7.1" />
+  </ItemGroup>
 </Project>

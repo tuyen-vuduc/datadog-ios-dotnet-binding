@@ -41,7 +41,7 @@
   <ItemGroup>
     <None Include="DatadogObjc.iOS.targets" Pack="True" PackagePath="build/DatadogObjc.iOS.targets" />
     <None Include="DatadogObjc.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogObjc.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogObjc.xcframework/" Pack="True" PackagePath="artifacts\DatadogObjc.framework" />
+    <None Include="../../Carthage/Build/DatadogObjc.xcframework/" Pack="True" PackagePath="artifacts\DatadogObjc.xcframework" />
   </ItemGroup>
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogObjc.xcframework">

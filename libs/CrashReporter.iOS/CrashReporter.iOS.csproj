@@ -41,7 +41,7 @@
   <ItemGroup>
     <None Include="CrashReporter.iOS.targets" Pack="True" PackagePath="build/CrashReporter.iOS.targets" />
     <None Include="CrashReporter.iOS.targets" Pack="True" PackagePath="buildTransitive/CrashReporter.iOS.targets" />
-    <None Include="../../Carthage/Build/CrashReporter.xcframework/" Pack="True" PackagePath="artifacts\CrashReporter.framework" />
+    <None Include="../../Carthage/Build/CrashReporter.xcframework/" Pack="True" PackagePath="artifacts\CrashReporter.xcframework" />
   </ItemGroup>
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/CrashReporter.xcframework">

@@ -5,7 +5,7 @@
     <_DatadogCrashReportingId>DatadogCrashReporting</_DatadogCrashReportingId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogCrashReporting.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogCrashReporting.xcframework">
         <_Id>$(_DatadogCrashReportingId)</_Id>
     </_NativeReference>
   </ItemGroup>

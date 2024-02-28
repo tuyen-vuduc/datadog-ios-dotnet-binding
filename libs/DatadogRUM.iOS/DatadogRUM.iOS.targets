@@ -5,7 +5,7 @@
     <_DatadogRUMId>DatadogRUM</_DatadogRUMId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogRUM.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogRUM.xcframework">
         <_Id>$(_DatadogRUMId)</_Id>
     </_NativeReference>
   </ItemGroup>

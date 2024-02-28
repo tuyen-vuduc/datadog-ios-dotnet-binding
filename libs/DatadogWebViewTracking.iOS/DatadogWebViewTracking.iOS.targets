@@ -5,7 +5,7 @@
     <_DatadogWebViewTrackingId>DatadogWebViewTracking</_DatadogWebViewTrackingId>
   </PropertyGroup>
   <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogWebViewTracking.framework">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogWebViewTracking.xcframework">
         <_Id>$(_DatadogWebViewTrackingId)</_Id>
     </_NativeReference>
   </ItemGroup>
