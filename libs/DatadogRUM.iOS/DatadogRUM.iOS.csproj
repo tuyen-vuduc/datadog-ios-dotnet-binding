@@ -43,6 +43,7 @@
     <None Include="DatadogRUM.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogRUM.iOS.targets" />
     <None Include="../../Carthage/Build/DatadogRUM.xcframework/" Pack="True" PackagePath="artifacts\DatadogRUM.xcframework" />
   </ItemGroup>
+  <Import Project="DatadogRUM.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogRUM.xcframework">
         <_Id>$(_DatadogRUMId)</_Id>

@@ -43,6 +43,7 @@
     <None Include="DatadogSessionReplay.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogSessionReplay.iOS.targets" />
     <None Include="../../Carthage/Build/DatadogSessionReplay.xcframework/" Pack="True" PackagePath="artifacts\DatadogSessionReplay.xcframework" />
   </ItemGroup>
+  <Import Project="DatadogSessionReplay.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogSessionReplay.xcframework">
         <_Id>$(_DatadogSessionReplayId)</_Id>

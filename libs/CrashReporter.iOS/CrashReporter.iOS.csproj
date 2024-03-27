@@ -43,6 +43,7 @@
     <None Include="CrashReporter.iOS.targets" Pack="True" PackagePath="buildTransitive/CrashReporter.iOS.targets" />
     <None Include="../../Carthage/Build/CrashReporter.xcframework/" Pack="True" PackagePath="artifacts\CrashReporter.xcframework" />
   </ItemGroup>
+  <Import Project="CrashReporter.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/CrashReporter.xcframework">
         <_Id>$(_CrashReporterId)</_Id>

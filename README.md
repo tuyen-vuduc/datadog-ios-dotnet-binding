@@ -7,7 +7,7 @@
 ## Steps to create/update
 
 - 1/ Install above mentioned Tools
-- 2/ Run `carthage update --use-xcframeworks.`
+- 2/ Run `carthage update --use-xcframeworks`
 - 3/ Run `sh gen.sh`
 - 4/ Try compiling and correct compilation issues
 

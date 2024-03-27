@@ -43,6 +43,7 @@
     <None Include="DatadogWebViewTracking.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogWebViewTracking.iOS.targets" />
     <None Include="../../Carthage/Build/DatadogWebViewTracking.xcframework/" Pack="True" PackagePath="artifacts\DatadogWebViewTracking.xcframework" />
   </ItemGroup>
+  <Import Project="DatadogWebViewTracking.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogWebViewTracking.xcframework">
         <_Id>$(_DatadogWebViewTrackingId)</_Id>

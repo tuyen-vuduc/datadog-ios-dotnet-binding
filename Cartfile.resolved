@@ -1,2 +1,2 @@
-github "DataDog/dd-sdk-ios" "2.7.1"
+github "DataDog/dd-sdk-ios" "2.8.1"
 github "microsoft/plcrashreporter" "1.11.1"

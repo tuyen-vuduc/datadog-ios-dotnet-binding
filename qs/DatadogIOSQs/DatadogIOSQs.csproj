@@ -16,5 +16,9 @@
     <PackageReference Include="DatadogRUM.iOS" Version="2.7.1" />
     <PackageReference Include="DatadogCore.iOS" Version="2.7.1" />
     <PackageReference Include="DatadogObjc.iOS" Version="2.7.1" />
+    <PackageReference Include="Xamarin.Swift" Version="1.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

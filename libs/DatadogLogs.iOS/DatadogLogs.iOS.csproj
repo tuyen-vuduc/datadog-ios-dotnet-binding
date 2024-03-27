@@ -43,6 +43,7 @@
     <None Include="DatadogLogs.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogLogs.iOS.targets" />
     <None Include="../../Carthage/Build/DatadogLogs.xcframework/" Pack="True" PackagePath="artifacts\DatadogLogs.xcframework" />
   </ItemGroup>
+  <Import Project="DatadogLogs.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../../Carthage/Build/DatadogLogs.xcframework">
         <_Id>$(_DatadogLogsId)</_Id>
