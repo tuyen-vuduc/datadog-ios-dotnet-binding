@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogWebViewTracking>2.8.1</_DatadogWebViewTracking>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogWebViewTrackingAssemblyName>DatadogWebViewTracking.iOS, Version=$(_DatadogWebViewTracking), Culture=neutral, PublicKeyToken=null </_DatadogWebViewTrackingAssemblyName>
-		<_DatadogWebViewTrackingItemsFolder>DatadogWebViewTracking-$(_DatadogWebViewTracking)$(_NugetSuffix)</_DatadogWebViewTrackingItemsFolder>
+		<_DatadogWebViewTrackingAssemblyName>DatadogWebViewTracking.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogWebViewTrackingAssemblyName>
+		<_DatadogWebViewTrackingItemsFolder>DatadogWebViewTracking-$(_DatadogVersion)$(_NugetSuffix)</_DatadogWebViewTrackingItemsFolder>
 		<_DatadogWebViewTrackingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogWebViewTrackingItemsFolder)\</_DatadogWebViewTrackingSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogWebViewTrackingItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1DvR27WoWm_cR-RssT9m3BBKuq1GQYhzC&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogWebViewTrackingSDKBaseFolder)DatadogWebViewTracking.xcframework">

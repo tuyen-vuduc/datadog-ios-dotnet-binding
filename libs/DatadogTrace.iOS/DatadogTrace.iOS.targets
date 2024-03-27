@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogTrace>2.8.1</_DatadogTrace>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogTraceAssemblyName>DatadogTrace.iOS, Version=$(_DatadogTrace), Culture=neutral, PublicKeyToken=null </_DatadogTraceAssemblyName>
-		<_DatadogTraceItemsFolder>DatadogTrace-$(_DatadogTrace)$(_NugetSuffix)</_DatadogTraceItemsFolder>
+		<_DatadogTraceAssemblyName>DatadogTrace.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogTraceAssemblyName>
+		<_DatadogTraceItemsFolder>DatadogTrace-$(_DatadogVersion)$(_NugetSuffix)</_DatadogTraceItemsFolder>
 		<_DatadogTraceSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogTraceItemsFolder)\</_DatadogTraceSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogTraceItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1fWzoHMoMRZ3DB9kGmjsFrQLLj66Np0wX&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogTraceSDKBaseFolder)DatadogTrace.xcframework">

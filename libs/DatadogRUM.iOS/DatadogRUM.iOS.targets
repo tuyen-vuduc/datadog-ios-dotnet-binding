@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogRUM>2.8.1</_DatadogRUM>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogRUMAssemblyName>DatadogRUM.iOS, Version=$(_DatadogRUM), Culture=neutral, PublicKeyToken=null </_DatadogRUMAssemblyName>
-		<_DatadogRUMItemsFolder>DatadogRUM-$(_DatadogRUM)$(_NugetSuffix)</_DatadogRUMItemsFolder>
+		<_DatadogRUMAssemblyName>DatadogRUM.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogRUMAssemblyName>
+		<_DatadogRUMItemsFolder>DatadogRUM-$(_DatadogVersion)$(_NugetSuffix)</_DatadogRUMItemsFolder>
 		<_DatadogRUMSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogRUMItemsFolder)\</_DatadogRUMSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogRUMItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=15jGepBPoZ8q3qS17JPusGx96v_xRnnFs&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogRUMSDKBaseFolder)DatadogRUM.xcframework">

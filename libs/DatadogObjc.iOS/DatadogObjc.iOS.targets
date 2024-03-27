@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogObjc>2.8.1</_DatadogObjc>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogObjcAssemblyName>DatadogObjc.iOS, Version=$(_DatadogObjc), Culture=neutral, PublicKeyToken=null </_DatadogObjcAssemblyName>
-		<_DatadogObjcItemsFolder>DatadogObjc-$(_DatadogObjc)$(_NugetSuffix)</_DatadogObjcItemsFolder>
+		<_DatadogObjcAssemblyName>DatadogObjc.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogObjcAssemblyName>
+		<_DatadogObjcItemsFolder>DatadogObjc-$(_DatadogVersion)$(_NugetSuffix)</_DatadogObjcItemsFolder>
 		<_DatadogObjcSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogObjcItemsFolder)\</_DatadogObjcSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogObjcItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1jTskQD_PKYJ0XjCpCgZYJTSMFxcSeDBl&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogObjcSDKBaseFolder)DatadogObjc.xcframework">

@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogSessionReplay>2.8.1</_DatadogSessionReplay>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogSessionReplayAssemblyName>DatadogSessionReplay.iOS, Version=$(_DatadogSessionReplay), Culture=neutral, PublicKeyToken=null </_DatadogSessionReplayAssemblyName>
-		<_DatadogSessionReplayItemsFolder>DatadogSessionReplay-$(_DatadogSessionReplay)$(_NugetSuffix)</_DatadogSessionReplayItemsFolder>
+		<_DatadogSessionReplayAssemblyName>DatadogSessionReplay.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogSessionReplayAssemblyName>
+		<_DatadogSessionReplayItemsFolder>DatadogSessionReplay-$(_DatadogVersion)$(_NugetSuffix)</_DatadogSessionReplayItemsFolder>
 		<_DatadogSessionReplaySDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogSessionReplayItemsFolder)\</_DatadogSessionReplaySDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogSessionReplayItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1NCZhtWpYEB59SfFsVfs6NSUDtg1UD9hH&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogSessionReplaySDKBaseFolder)DatadogSessionReplay.xcframework">

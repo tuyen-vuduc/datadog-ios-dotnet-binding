@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogCrashReporting>2.8.1</_DatadogCrashReporting>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
 		<_DatadogCrashReportingAssemblyName>DatadogCrashReporting.iOS, Version=$(_DatadogCrashReporting), Culture=neutral, PublicKeyToken=null </_DatadogCrashReportingAssemblyName>
-		<_DatadogCrashReportingItemsFolder>DatadogCrashReporting-$(_DatadogCrashReporting)$(_NugetSuffix)</_DatadogCrashReportingItemsFolder>
+		<_DatadogCrashReportingItemsFolder>DatadogCrashReporting-$(_DatadogVersion)$(_NugetSuffix)</_DatadogCrashReportingItemsFolder>
 		<_DatadogCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogCrashReportingItemsFolder)\</_DatadogCrashReportingSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogCrashReportingItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=17qOT_0_yxAYEepxL_cz5tlbuqOJqlRwZ&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogCrashReportingSDKBaseFolder)DatadogCrashReporting.xcframework">

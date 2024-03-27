@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogLogs>2.8.1</_DatadogLogs>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogLogsAssemblyName>DatadogLogs.iOS, Version=$(_DatadogLogs), Culture=neutral, PublicKeyToken=null </_DatadogLogsAssemblyName>
-		<_DatadogLogsItemsFolder>DatadogLogs-$(_DatadogLogs)$(_NugetSuffix)</_DatadogLogsItemsFolder>
+		<_DatadogLogsAssemblyName>DatadogLogs.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogLogsAssemblyName>
+		<_DatadogLogsItemsFolder>DatadogLogs-$(_DatadogVersion)$(_NugetSuffix)</_DatadogLogsItemsFolder>
 		<_DatadogLogsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogLogsItemsFolder)\</_DatadogLogsSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogLogsItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1xMxm1BFsHvwo3MmSA6LMBSdLX77mDS0z&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogLogsSDKBaseFolder)DatadogLogs.xcframework">

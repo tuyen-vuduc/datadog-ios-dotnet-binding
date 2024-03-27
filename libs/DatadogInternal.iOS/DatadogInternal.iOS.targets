@@ -2,15 +2,15 @@
 
 <Project>
 	<PropertyGroup>
-		<_DatadogInternal>2.8.1</_DatadogInternal>
+		<_DatadogVersion>2.8.1</_DatadogVersion>
 		<_NugetSuffix></_NugetSuffix>
-		<_DatadogInternalAssemblyName>DatadogInternal.iOS, Version=$(_DatadogInternal), Culture=neutral, PublicKeyToken=null </_DatadogInternalAssemblyName>
-		<_DatadogInternalItemsFolder>DatadogInternal-$(_DatadogInternal)$(_NugetSuffix)</_DatadogInternalItemsFolder>
+		<_DatadogInternalAssemblyName>DatadogInternal.iOS, Version=$(_DatadogVersion), Culture=neutral, PublicKeyToken=null </_DatadogInternalAssemblyName>
+		<_DatadogInternalItemsFolder>DatadogInternal-$(_DatadogVersion)$(_NugetSuffix)</_DatadogInternalItemsFolder>
 		<_DatadogInternalSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogInternalItemsFolder)\</_DatadogInternalSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_DatadogInternalItemsFolder)">
-      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=15V1nugK2oBRa3eb8TB7f2NDzHUKwnna9&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_DatadogInternalSDKBaseFolder)DatadogInternal.xcframework">
