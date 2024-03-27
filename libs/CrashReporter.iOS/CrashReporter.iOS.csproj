@@ -41,7 +41,6 @@
   <ItemGroup>
     <None Include="CrashReporter.iOS.targets" Pack="True" PackagePath="build/CrashReporter.iOS.targets" />
     <None Include="CrashReporter.iOS.targets" Pack="True" PackagePath="buildTransitive/CrashReporter.iOS.targets" />
-    <None Include="../../Carthage/Build/CrashReporter.xcframework/" Pack="True" PackagePath="artifacts\CrashReporter.xcframework" />
   </ItemGroup>
   <Import Project="CrashReporter.iOS.targets" />
   <ItemGroup>

@@ -43,7 +43,6 @@
   <ItemGroup>
     <None Include="DatadogCrashReporting.iOS.targets" Pack="True" PackagePath="build/DatadogCrashReporting.iOS.targets" />
     <None Include="DatadogCrashReporting.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogCrashReporting.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogCrashReporting.xcframework/" Pack="True" PackagePath="artifacts\DatadogCrashReporting.xcframework" />
   </ItemGroup>
   <Import Project="DatadogCrashReporting.iOS.targets" />
   <ItemGroup>

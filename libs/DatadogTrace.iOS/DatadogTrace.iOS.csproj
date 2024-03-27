@@ -41,7 +41,6 @@
   <ItemGroup>
     <None Include="DatadogTrace.iOS.targets" Pack="True" PackagePath="build/DatadogTrace.iOS.targets" />
     <None Include="DatadogTrace.iOS.targets" Pack="True" PackagePath="buildTransitive/DatadogTrace.iOS.targets" />
-    <None Include="../../Carthage/Build/DatadogTrace.xcframework/" Pack="True" PackagePath="artifacts\DatadogTrace.xcframework" />
   </ItemGroup>
   <Import Project="DatadogTrace.iOS.targets" />
   <ItemGroup>
