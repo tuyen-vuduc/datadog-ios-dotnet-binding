@@ -9,11 +9,13 @@
       <NoBindingEmbedding>false</NoBindingEmbedding>
       <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
   </PropertyGroup>
   <PropertyGroup>
-    <_NativeVersion>2.7.1</_NativeVersion>
+    <_NativeVersion>2.8.1</_NativeVersion>
     <_NugetSuffix></_NugetSuffix>
     <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>DatadogCrashReporting.iOS</RootNamespace>

@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Project>
-  <PropertyGroup>
-    <_DatadogLogsId>DatadogLogs</_DatadogLogsId>
-  </PropertyGroup>
-  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogLogs.xcframework">
-        <_Id>$(_DatadogLogsId)</_Id>
-    </_NativeReference>
+	<PropertyGroup>
+		<_DatadogLogs>2.8.1</_DatadogLogs>
+		<_NugetSuffix></_NugetSuffix>
+		<_DatadogLogsAssemblyName>DatadogLogs.iOS, Version=$(_DatadogLogs), Culture=neutral, PublicKeyToken=null </_DatadogLogsAssemblyName>
+		<_DatadogLogsItemsFolder>DatadogLogs-$(_DatadogLogs)$(_NugetSuffix)</_DatadogLogsItemsFolder>
+		<_DatadogLogsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogLogsItemsFolder)\</_DatadogLogsSDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_DatadogLogsItemsFolder)">
+      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_DatadogLogsSDKBaseFolder)DatadogLogs.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
-  <Target Name="_ResolveNativeReferencesForDatadogLogs" 
-          BeforeTargets="ResolveNativeReferences"
-          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
-    <ItemGroup>
-      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_DatadogLogsId)'">
-        <Kind>Framework</Kind>
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC</LinkerFlags>
-      </_NativeReference>
-      <NativeReference Include="@(_NativeReference)" />
-    </ItemGroup>
-  </Target>
 </Project>

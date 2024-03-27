@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Project>
-  <PropertyGroup>
-    <_DatadogSessionReplayId>DatadogSessionReplay</_DatadogSessionReplayId>
-  </PropertyGroup>
-  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogSessionReplay.xcframework">
-        <_Id>$(_DatadogSessionReplayId)</_Id>
-    </_NativeReference>
+	<PropertyGroup>
+		<_DatadogSessionReplay>2.8.1</_DatadogSessionReplay>
+		<_NugetSuffix></_NugetSuffix>
+		<_DatadogSessionReplayAssemblyName>DatadogSessionReplay.iOS, Version=$(_DatadogSessionReplay), Culture=neutral, PublicKeyToken=null </_DatadogSessionReplayAssemblyName>
+		<_DatadogSessionReplayItemsFolder>DatadogSessionReplay-$(_DatadogSessionReplay)$(_NugetSuffix)</_DatadogSessionReplayItemsFolder>
+		<_DatadogSessionReplaySDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogSessionReplayItemsFolder)\</_DatadogSessionReplaySDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_DatadogSessionReplayItemsFolder)">
+      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_DatadogSessionReplaySDKBaseFolder)DatadogSessionReplay.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
-  <Target Name="_ResolveNativeReferencesForDatadogSessionReplay" 
-          BeforeTargets="ResolveNativeReferences"
-          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
-    <ItemGroup>
-      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_DatadogSessionReplayId)'">
-        <Kind>Framework</Kind>
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC</LinkerFlags>
-      </_NativeReference>
-      <NativeReference Include="@(_NativeReference)" />
-    </ItemGroup>
-  </Target>
 </Project>

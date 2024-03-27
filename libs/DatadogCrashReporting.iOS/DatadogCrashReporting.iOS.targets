@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Project>
-  <PropertyGroup>
-    <_DatadogCrashReportingId>DatadogCrashReporting</_DatadogCrashReportingId>
-  </PropertyGroup>
-  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogCrashReporting.xcframework">
-        <_Id>$(_DatadogCrashReportingId)</_Id>
-    </_NativeReference>
+	<PropertyGroup>
+		<_DatadogCrashReporting>2.8.1</_DatadogCrashReporting>
+		<_NugetSuffix></_NugetSuffix>
+		<_DatadogCrashReportingAssemblyName>DatadogCrashReporting.iOS, Version=$(_DatadogCrashReporting), Culture=neutral, PublicKeyToken=null </_DatadogCrashReportingAssemblyName>
+		<_DatadogCrashReportingItemsFolder>DatadogCrashReporting-$(_DatadogCrashReporting)$(_NugetSuffix)</_DatadogCrashReportingItemsFolder>
+		<_DatadogCrashReportingSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogCrashReportingItemsFolder)\</_DatadogCrashReportingSDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_DatadogCrashReportingItemsFolder)">
+      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_DatadogCrashReportingSDKBaseFolder)DatadogCrashReporting.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
-  <Target Name="_ResolveNativeReferencesForDatadogCrashReporting" 
-          BeforeTargets="ResolveNativeReferences"
-          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
-    <ItemGroup>
-      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_DatadogCrashReportingId)'">
-        <Kind>Framework</Kind>
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC</LinkerFlags>
-      </_NativeReference>
-      <NativeReference Include="@(_NativeReference)" />
-    </ItemGroup>
-  </Target>
 </Project>

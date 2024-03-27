@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Project>
-  <PropertyGroup>
-    <_DatadogTraceId>DatadogTrace</_DatadogTraceId>
-  </PropertyGroup>
-  <ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
-    <_NativeReference Include="$(MSBuildThisFileDirectory)..\artifacts\DatadogTrace.xcframework">
-        <_Id>$(_DatadogTraceId)</_Id>
-    </_NativeReference>
+	<PropertyGroup>
+		<_DatadogTrace>2.8.1</_DatadogTrace>
+		<_NugetSuffix></_NugetSuffix>
+		<_DatadogTraceAssemblyName>DatadogTrace.iOS, Version=$(_DatadogTrace), Culture=neutral, PublicKeyToken=null </_DatadogTraceAssemblyName>
+		<_DatadogTraceItemsFolder>DatadogTrace-$(_DatadogTrace)$(_NugetSuffix)</_DatadogTraceItemsFolder>
+		<_DatadogTraceSDKBaseFolder>$(XamarinBuildDownloadDir)$(_DatadogTraceItemsFolder)\</_DatadogTraceSDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_DatadogTraceItemsFolder)">
+      <Url>https://drive.google.com/uc?id=11kw6yJfPf96D0zlYDTM4pI5n0moHhMy5&amp;export=download</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_DatadogTraceSDKBaseFolder)DatadogTrace.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
   </ItemGroup>
-  <Target Name="_ResolveNativeReferencesForDatadogTrace" 
-          BeforeTargets="ResolveNativeReferences"
-          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
-    <ItemGroup>
-      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_DatadogTraceId)'">
-        <Kind>Framework</Kind>
-        <SmartLink>True</SmartLink>
-        <ForceLoad>True</ForceLoad>
-        <LinkerFlags>-ObjC</LinkerFlags>
-      </_NativeReference>
-      <NativeReference Include="@(_NativeReference)" />
-    </ItemGroup>
-  </Target>
 </Project>
