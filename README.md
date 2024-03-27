@@ -47,4 +47,4 @@
 ```
 
 # LICENSE
-This repository is licensed under MIT license. However, Datahog libraries are licensed as specified by [Datahog](https://github.com/DataDog/dd-sdk-ios).
+This repository is licensed under The 3-Clause BSD license. However, Datahog libraries are licensed as specified by [Datahog](https://github.com/DataDog/dd-sdk-ios).
